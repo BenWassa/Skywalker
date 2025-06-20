@@ -23,9 +23,9 @@ This isn’t just about *Star Wars*. Luke’s journey is a mirror and a map for 
 - **Your Personal Journal:** Use a dedicated journal or notebook. All reflection questions are meant to be answered externally.
 - **No Rush, No Right Answers:** Move at your own pace. Pause, revisit, and let insights emerge over time.
 - **Leveraging the Tiered Questions:**
-  - **Level 1 – Pathfinder:** Basic comprehension
-  - **Level 2 – Wayfinder:** Analysis and self-connection
-  - **Level 3 – Trailblazer:** Integration and transformation
+  - **Level 1 – Padawan:** Basic comprehension
+  - **Level 2 – Knight:** Analysis and self-connection
+  - **Level 3 – Master:** Integration and transformation
 - **The Power of Symbolism:** Visual motifs will act as recurring symbols throughout. These metaphors will enhance memory and deepen insight (e.g., twin suns = duality).
 
 ---
@@ -67,15 +67,15 @@ Welcome to the beginning of your journey. This stage is not about action—it is
 3. Explore how mythic longing creates space for transformation.
 
 **Tiered Reflection Questions:**
-- **Level 1 – Pathfinder:**
+- **Level 1 – Padawan:**
   - What is Luke’s core emotional state at the beginning of *A New Hope*?
   - What role do the twin suns play visually and symbolically?
 
-- **Level 2 – Wayfinder:**
+- **Level 2 – Knight:**
   - Reflect on a time you felt stuck or limited. What were the emotional and symbolic features of that moment?
   - What longing drives you most right now? Is it for purpose, connection, adventure?
 
-- **Level 3 – Trailblazer:**
+- **Level 3 – Master:**
   - If your life had a “twin suns” moment—an image that captured your own internal pull toward growth—what would it be? Describe or sketch it.
   - What would your “first call” to adventure sound like? Who or what is whispering that invitation?
 
@@ -121,15 +121,15 @@ This stage is about movement—external and internal. When the world as you know
 3. Identify your mentors—guides who challenge and support your growth.
 
 **Tiered Reflection Questions:**
-- **Level 1 – Pathfinder:**
+- **Level 1 – Padawan:**
   - What triggers Luke’s decision to leave Tatooine?
   - What does the lightsaber represent in the story?
 
-- **Level 2 – Wayfinder:**
+- **Level 2 – Knight:**
   - When in your life have you felt a door close—a chapter end—suddenly?
   - What gifts or responsibilities have you inherited from family or mentors?
 
-- **Level 3 – Trailblazer:**
+- **Level 3 – Master:**
   - Who is your Obi-Wan? What are the teachings they left you with?
   - What blade—metaphorical or real—do you carry that connects you to something larger than yourself?
 
@@ -175,15 +175,15 @@ This is the crossroads. Action has begun, but purpose is not yet formed. You are
 3. Reflect on a time when loss triggered growth.
 
 **Tiered Reflection Questions:**
-- **Level 1 – Pathfinder:**
+- **Level 1 – Padawan:**
   - What is the emotional impact of Obi-Wan’s death on Luke?
   - How does Luke respond to his first major battle aboard the Death Star?
 
-- **Level 2 – Wayfinder:**
+- **Level 2 – Knight:**
   - When have you had to lead before you felt ready?
   - Describe a time when you confused action for direction—what did you learn?
 
-- **Level 3 – Trailblazer:**
+- **Level 3 – Master:**
   - Write about a mentor or stabilizer you lost. What part of them now lives in you?
   - What internal “death” did you experience that made space for transformation?
 
@@ -229,15 +229,15 @@ This is the deep shadow work of the quest. You must now look within—at the par
 3. Confront your inherited patterns and how they shape your choices.
 
 **Tiered Reflection Questions:**
-- **Level 1 – Pathfinder:**
+- **Level 1 – Padawan:**
   - What happens to Luke in the Dagobah cave?
   - How does he react to the revelation that Vader is his father?
 
-- **Level 2 – Wayfinder:**
+- **Level 2 – Knight:**
   - When have you encountered a truth that broke your illusion of who you thought you were?
   - What is one behavior or tendency you’ve inherited that you now question?
 
-- **Level 3 – Trailblazer:**
+- **Level 3 – Master:**
   - Describe your own "Dagobah Cave" moment. What fear did you meet there?
   - What might it mean to fall—not to fail, but to surrender to transformation?
 
@@ -283,15 +283,15 @@ This final stage is not an end, but a return to self—transformed. What have yo
 3. Commit to sharing what you’ve learned—with self, others, and the world.
 
 **Tiered Reflection Questions:**
-- **Level 1 – Pathfinder:**
+- **Level 1 – Padawan:**
   - How is Luke’s demeanor different at the start of *Return of the Jedi*?
   - What does his green lightsaber signify symbolically?
 
-- **Level 2 – Wayfinder:**
+- **Level 2 – Knight:**
   - When have you chosen peace over retaliation? What did it cost—and earn?
   - Who have you tried to see beneath the mask, and what did it reveal?
 
-- **Level 3 – Trailblazer:**
+- **Level 3 – Master:**
   - What part of your “shadow” have you integrated into your strength?
   - Write your own metaphorical “return”—a moment you showed up as a wiser version of yourself. What did you bring back?
 
