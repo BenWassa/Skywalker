@@ -208,7 +208,7 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradient-shift 4s ease-in-out infinite;
+  animation: gradient-shift 5s ease-in-out infinite;
 }
 
 @keyframes gradient-shift {
@@ -661,7 +661,7 @@ pre code {
   bottom: 0;
   background: radial-gradient(
     300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(255, 193, 7, 0.1) 0%,
+    rgba(238, 255, 7, 0.1) 0%,
     transparent 50%
   );
   opacity: 0;
@@ -689,6 +689,13 @@ pre code {
 .card-spotlight.level1 h4 {
   color: #4ea6ff;
 }
+.card-spotlight.level1::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #4ea6ff33 0%,
+    transparent 50%
+  );
+}
 
 .card-spotlight.level2 {
   border-color: #6cff7a;
@@ -700,6 +707,13 @@ pre code {
 .card-spotlight.level2 h4 {
   color: #6cff7a;
 }
+.card-spotlight.level2::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #6cff7a33 0%,
+    transparent 50%
+  );
+}
 
 .card-spotlight.level3 {
   border-color: #b97aff;
@@ -710,6 +724,13 @@ pre code {
 }
 .card-spotlight.level3 h4 {
   color: #b97aff;
+}
+.card-spotlight.level3::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #b97aff33 0%,
+    transparent 50%
+  );
 }
 
 /* --- ReactBits StarBorder effect (verbatim) --- */
