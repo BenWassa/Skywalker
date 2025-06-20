@@ -76,6 +76,20 @@
     <pre><code>const example = 'code snippet';</code></pre>
     <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">Hover effect demo - Move your mouse around!</div>
 
+    <import StarBorder from './StarBorder'>
+
+    <StarBorder
+      as="div"
+      className="custom-class"
+      color="cyan"
+      speed="5s"
+      thickness={2}
+    >
+      <blockquote>
+        <p>Professor's insight here…</p>
+      </blockquote>
+    </StarBorder>
+
 <script>
 // Spotlight effect JavaScript
 function updateSpotlight(e, element) {
