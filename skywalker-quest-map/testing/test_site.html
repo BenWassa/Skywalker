@@ -89,44 +89,124 @@
     }
 }
 
-/* Replace your current .professor-voice-section blockquote CSS with this for a clean animated star border */
+/* Replace your current .professor-voice-section blockquote CSS with this for a ReactBits-inspired star border */
 
 .professor-voice-section blockquote {
     position: relative;
-    border-radius: 1em;
-    border: none;
+    border-radius: 20px;
+    overflow: hidden;
     padding: 1.2em 1.5em;
     margin: 1.2em 0;
     background: #23263a;
     color: #fff;
-    overflow: hidden;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+    z-index: 0;
+    border: none;
+}
+
+/* Star border gradients */
+.professor-voice-section blockquote::before,
+.professor-voice-section blockquote::after {
+    content: "";
+    position: absolute;
+    width: 300%;
+    height: 50%;
+    border-radius: 50%;
+    opacity: 0.7;
+    z-index: 1;
+    pointer-events: none;
 }
 
 .professor-voice-section blockquote::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 1em;
-    padding: 2px;
-    background: 
-      repeating-conic-gradient(from var(--star-angle, 0deg), #ffe066 0deg 2deg, transparent 2deg 18deg);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-    z-index: 1;
-    animation: star-border-spin 4s linear infinite;
+    bottom: -12px;
+    right: -250%;
+    background: radial-gradient(circle, #ffe066, transparent 10%);
+    animation: star-movement-bottom 6s linear infinite alternate;
 }
 
-@keyframes star-border-spin {
-    100% {
-        --star-angle: 360deg;
-    }
+.professor-voice-section blockquote::after {
+    top: -12px;
+    left: -250%;
+    background: radial-gradient(circle, #fffbe6, transparent 10%);
+    animation: star-movement-top 6s linear infinite alternate;
 }
-</style>
+
+.star-border-container {
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  margin: 1.2em 0;
+}
+
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.7;
+  bottom: -12px;
+  right: -250%;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--star-color, #ffe066), transparent 10%);
+  animation: star-movement-bottom var(--star-speed, 6s) linear infinite alternate;
+  z-index: 0;
+}
+
+.border-gradient-top {
+  position: absolute;
+  opacity: 0.7;
+  width: 300%;
+  height: 50%;
+  top: -12px;
+  left: -250%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fffbe6, transparent 10%);
+  animation: star-movement-top var(--star-speed, 6s) linear infinite alternate;
+  z-index: 0;
+}
+
+.inner-content {
+  position: relative;
+  border: 1px solid #222;
+  background: #23263a;
+  color: white;
+  font-size: 16px;
+  text-align: left;
+  padding: 1.2em 1.5em;
+  border-radius: 20px;
+  z-index: 1;
+  margin: 0;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+}
+
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
+  }
+}
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
+
+/* Keep content above the gradients */
+.professor-voice-section blockquote > * {
+    position: relative;
+    z-index: 2;
+}
+    </style>
 </head>
 <body>
 <div class="crossnote markdown-preview">
@@ -142,9 +222,13 @@
     <p>This paragraph demonstrates <a href="#">link style</a>, <strong>strong text</strong>, and <em>emphasis</em>.</p>
     <div class="professor-voice-section">
         <h4 class="professor-voice-header">Professor's Voice</h4>
-        <blockquote>
-            <p>Placeholder insight about mythology and the hero's journey with animated star border effect.</p>
-        </blockquote>
+        <div class="star-border-container" style="--star-color: #ffe066; --star-speed: 6s;">
+            <div class="border-gradient-bottom"></div>
+            <div class="border-gradient-top"></div>
+            <blockquote class="inner-content">
+                <p>Placeholder insight about mythology and the hero's journey with animated star border effect.</p>
+            </blockquote>
+        </div>
     </div>
     <ul>
         <li>List item one</li>
