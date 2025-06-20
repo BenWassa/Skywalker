@@ -33,3 +33,11 @@ The `testing` area now explores enhanced visual effects:
 - Spotlight cards use radial gradients for hover effects.
 - Animation durations have been adjusted for smoother transitions.
 - Title text now uses a deeper 3D perspective for a more cinematic feel.
+- Styles and markup from the `testing` sandbox were merged into the main guide for a consistent look.
+
+## Development & Testing
+
+Ongoing experiments live in `skywalker-quest-map/testing`. Open `test_site.html`
+in a browser to preview new layout ideas and effects. The sandbox remains a safe
+space for rapid iteration even though many of its styles have been incorporated
+into the main guide.
