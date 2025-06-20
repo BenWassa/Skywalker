@@ -839,7 +839,7 @@ button:focus {
   transform: translateY(-50%);
   background: rgba(15, 17, 26, 0.8);
   border-right: 1px solid var(--border-subtle);
-  width: 60px;
+  width: 36px;
   max-height: 80vh;
   overflow-y: auto;
   transition: width 0.3s ease;
@@ -858,12 +858,38 @@ button:focus {
 }
 
 .side-nav li {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
+  position: relative;
+  list-style: none;
+}
+
+.side-nav li::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 4px;
+  margin: 6px auto;
+  border: 1px solid var(--text-secondary);
+  border-radius: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.side-nav li.active::before {
+  background: var(--accent-gold);
+}
+
+.side-nav:hover li::before {
+  display: none;
 }
 
 .side-nav a {
   color: var(--text-secondary);
   text-decoration: none;
+  display: none;
+}
+
+.side-nav:hover a {
   display: block;
 }
 
@@ -875,10 +901,4 @@ button:focus {
 .side-nav .toc-h3 {
   padding-left: 12px;
   font-size: 0.9em;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.side-nav:hover .toc-h3 {
-  opacity: 1;
 }
