@@ -691,7 +691,7 @@ pre code {
   border-left: 4px solid rgb(255, 217, 0);
 }
 
-/* --- ReactBits.dev StarBorder Effect (as in StarBorder.css) --- */
+/* --- ReactBits.dev StarBorder Effect: Dynamic Color & Speed --- */
 .star-border-container {
   display: inline-block;
   position: relative;
@@ -707,8 +707,7 @@ pre code {
   bottom: -12px;
   right: -250%;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-gold, #ffe066), transparent 10%);
-  animation: star-movement-bottom 6s linear infinite alternate;
+  animation: star-movement-bottom linear infinite alternate;
   z-index: 0;
 }
 
@@ -720,8 +719,7 @@ pre code {
   top: -12px;
   left: -250%;
   border-radius: 50%;
-  background: radial-gradient(circle, var(--accent-gold, #ffe066), transparent 10%);
-  animation: star-movement-top 6s linear infinite alternate;
+  animation: star-movement-top linear infinite alternate;
   z-index: 0;
 }
 
@@ -735,7 +733,6 @@ pre code {
   padding: 16px 26px;
   border-radius: 20px;
   z-index: 1;
-  box-shadow: none;
 }
 
 @keyframes star-movement-bottom {
@@ -759,7 +756,7 @@ pre code {
     opacity: 0;
   }
 }
-/* --- End ReactBits.dev StarBorder Effect --- */
+/* --- End Dynamic StarBorder Effect --- */
 
 @media (max-width: 768px) {
   .crossnote.markdown-preview {
