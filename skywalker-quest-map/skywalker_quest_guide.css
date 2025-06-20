@@ -152,48 +152,46 @@ h1 {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   position: relative;
-  z-index: 2;
-  
-  /* Star Wars style text effects */
-  text-shadow: 
-    0 0 calc(10px * var(--title-glow)) var(--accent-gold),
-    0 0 calc(20px * var(--title-glow)) var(--accent-gold),
-    0 0 calc(40px * var(--title-glow)) rgba(255, 193, 7, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.8);
-  
-  /* Subtle 3D perspective like the opening crawl */
-  transform: perspective(400px) rotateX(15deg);
+
+  /* Enhanced 3D perspective for cinematic effect */
+  transform: perspective(600px) rotateX(22deg);
   transform-origin: center bottom;
-  
-  animation: title-glow 3s ease-in-out infinite;
 }
 
-@keyframes title-glow {
-  0%, 100% {
-    text-shadow: 
-      0 0 calc(10px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(20px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(40px * var(--title-glow)) rgba(255, 193, 7, 0.5),
-      0 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  50% {
-    text-shadow: 
-      0 0 calc(15px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(30px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(60px * var(--title-glow)) rgba(255, 193, 7, 0.7),
-      0 2px 4px rgba(0, 0, 0, 0.8);
-  }
-}
 
+/* GRADIENT TEXT EFFECT for H2 */
 h2 {
   font-family: 'Inter', sans-serif;
   font-size: clamp(1.75rem, 3.5vw, 2.25rem);
   font-weight: 600;
-  color: var(--text-primary);
   margin: 60px 0 24px 0;
   line-height: 1.2;
   letter-spacing: -0.02em;
   position: relative;
+  
+  /* Gradient text effect */
+  background: linear-gradient(
+    135deg,
+    var(--accent-blue) 0%,
+    var(--accent-purple) 25%,
+    var(--accent-gold) 50%,
+    var(--accent-orange) 75%,
+    var(--accent-blue) 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 5s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 h2::after {
@@ -229,7 +227,7 @@ h4 {
   font-size: clamp(1.125rem, 2vw, 1.25rem);
   font-weight: 500;
   color: var(--text-primary);
-  margin: 32px 0 12px 0;
+  margin: 10px 0 12px 0;
   line-height: 1.4;
 }
 
@@ -241,27 +239,112 @@ p {
   font-weight: 400;
 }
 
+/* STAR BORDER EFFECT for Professor's Voice */
+.professor-voice-section {
+  position: relative;
+  margin: 40px 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  animation: none;
+}
+
+.professor-voice-section::before,
+.professor-voice-section::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Inner content area */
+.professor-voice-section::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--secondary-background);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+/* Stars around the border */
+.professor-voice-section::after {
+  content: '✦ ✦ ✦';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--accent-gold);
+  font-size: 12px;
+  letter-spacing: 20px;
+  text-shadow: 0 0 8px var(--accent-gold);
+  animation: star-twinkle 2s ease-in-out infinite;
+}
+
+@keyframes star-twinkle {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
 /* Professional Blockquotes - Professor's Voice */
-blockquote {
+.professor-voice-section blockquote {
+  position: relative;
   background: linear-gradient(135deg, var(--secondary-background), var(--surface-elevated));
   border: 1px solid var(--border-subtle);
   border-left: 4px solid var(--accent-orange);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 32px;
-  margin: 40px 0;
-  position: relative;
+  margin: 0;
   backdrop-filter: blur(10px);
+  z-index: 1;
+  box-shadow: none;
+  overflow: hidden;
 }
 
-blockquote::before {
+.professor-voice-section blockquote::before,
+.professor-voice-section blockquote::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--accent-orange), transparent);
-  opacity: 0.6;
+  width: 220%;
+  height: 18px;
+  border-radius: 50%;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.professor-voice-section blockquote::before {
+  bottom: -9px;
+  left: -60%;
+  background: radial-gradient(circle, #ffe066 0%, transparent 70%);
+  animation: star-move-bottom 5s linear infinite alternate;
+}
+
+.professor-voice-section blockquote::after {
+  top: -9px;
+  left: -60%;
+  background: radial-gradient(circle, #fffbe6 0%, transparent 70%);
+  animation: star-move-top 5s linear infinite alternate;
+}
+
+@keyframes star-move-bottom {
+  0% {
+    transform: translateX(0%);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(-40%);
+    opacity: 0.15;
+  }
+}
+
+@keyframes star-move-top {
+  0% {
+    transform: translateX(0%);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateX(40%);
+    opacity: 0.15;
+  }
 }
 
 /* Professor's Voice Header */
@@ -275,10 +358,8 @@ blockquote::before {
   font-style: normal;
   margin-bottom: 16px;
   opacity: 0.9;
-}
-
-.professor-voice-section {
-  margin: 40px 0;
+  position: relative;
+  z-index: 1;
 }
 
 blockquote p {
@@ -311,6 +392,15 @@ ul li::before {
   font-size: 1.2em;
 }
 
+/* Remove bullet for list items with "Key Concepts Explored" */
+ul li strong:first-child {
+  display: inline-block;
+}
+
+ul li strong:first-child::before {
+  content: none;
+}
+
 /* Ordered Lists */
 ol {
   list-style-position: outside;
@@ -331,6 +421,76 @@ ol li::before {
 ol li::marker {
   color: var(--accent-purple);
   font-weight: 500;
+}
+
+/* SPOTLIGHT CARD EFFECT for Tiered Questions */
+.tiered-questions {
+  background: var(--secondary-background);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  padding: 32px;
+  margin: 32px 0;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tiered-questions::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(59, 130, 246, 0.15) 0%,
+    rgba(139, 92, 246, 0.1) 25%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.tiered-questions:hover::before {
+  opacity: 1;
+}
+
+.tiered-questions:hover {
+  border-color: rgba(59, 130, 246, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(59, 130, 246, 0.1),
+    0 0 40px rgba(139, 92, 246, 0.05);
+  transform: translateY(-2px);
+}
+
+/* Question levels */
+.question-level {
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.question-level:last-child {
+  margin-bottom: 0;
+}
+
+.question-level h4 {
+  color: var(--accent-blue);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.question-level ul {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.question-level ul li {
+  color: var(--text-secondary);
+  font-size: 0.95em;
 }
 
 /* Professional Tables */
@@ -451,59 +611,168 @@ pre code {
   opacity: 0.8;
 }
 
-/* --- React Collapsible Component Styles --- */
-.collapsible-container {
-  background-color: var(--secondary-background);
+/* Demo spotlight card */
+.card-spotlight {
+  background: var(--secondary-background);
   border: 1px solid var(--border-subtle);
   border-radius: 8px;
-  margin: 24px 0;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  color: var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(238, 255, 7, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+.card-spotlight:hover {
+  border-color: rgba(255, 193, 7, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Spotlight card color levels */
+.card-spotlight.level1 {
+  border-color: #4ea6ff;
+}
+.card-spotlight.level1:hover {
+  box-shadow: 0 6px 32px 0 #4ea6ff55;
+  border-color: #4ea6ff;
+}
+.card-spotlight.level1 h4 {
+  color: #4ea6ff;
+}
+.card-spotlight.level1::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #4ea6ff33 0%,
+    transparent 50%
+  );
+}
+
+.card-spotlight.level2 {
+  border-color: #6cff7a;
+}
+.card-spotlight.level2:hover {
+  box-shadow: 0 6px 32px 0 #6cff7a55;
+  border-color: #6cff7a;
+}
+.card-spotlight.level2 h4 {
+  color: #6cff7a;
+}
+.card-spotlight.level2::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #6cff7a33 0%,
+    transparent 50%
+  );
+}
+
+.card-spotlight.level3 {
+  border-color: #b97aff;
+}
+.card-spotlight.level3:hover {
+  box-shadow: 0 6px 32px 0 #b97aff55;
+  border-color: #b97aff;
+}
+.card-spotlight.level3 h4 {
+  color: #b97aff;
+}
+.card-spotlight.level3::before {
+  background: radial-gradient(
+    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    #b97aff33 0%,
+    transparent 50%
+  );
+}
+
+/* --- ReactBits StarBorder effect (verbatim) --- */
+.star-border-container {
+  display: inline-block;
+  position: relative;
+  border-radius: 20px;
   overflow: hidden;
 }
 
-.collapsible-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-  cursor: pointer;
-  background-color: var(--surface-elevated);
-  transition: background-color 0.2s ease;
+.border-gradient-bottom {
+  position: absolute;
+  width: 300%;
+  height: 50%;
+  opacity: 0.7;
+  bottom: -12px;
+  right: -250%;
+  border-radius: 50%;
+  animation: star-movement-bottom linear infinite alternate;
+  z-index: 0;
 }
 
-.collapsible-header:hover {
-  background-color: rgba(59, 130, 246, 0.1);
+.border-gradient-top {
+  position: absolute;
+  opacity: 0.7;
+  width: 300%;
+  height: 50%;
+  top: -12px;
+  left: -250%;
+  border-radius: 50%;
+  animation: star-movement-top linear infinite alternate;
+  z-index: 0;
 }
 
-.collapsible-header h4 {
-  margin: 0;
-  color: var(--text-primary);
+.inner-content {
+  position: relative;
+  border: 1px solid #222;
+  background: #000;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  padding: 16px 26px;
+  border-radius: 20px;
+  z-index: 1;
 }
 
-.collapsible-icon {
-  font-size: 1.2rem;
-  color: var(--accent-purple);
-  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.collapsible-icon.open {
-  transform: rotate(180deg);
-}
-
-.collapsible-content {
-  padding: 0 20px 20px 20px;
-  animation: fadeIn 0.4s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
+@keyframes star-movement-bottom {
+  0% {
+    transform: translate(0%, 0%);
     opacity: 1;
-    transform: translateY(0);
+  }
+  100% {
+    transform: translate(-100%, 0%);
+    opacity: 0;
   }
 }
+
+@keyframes star-movement-top {
+  0% {
+    transform: translate(0%, 0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(100%, 0%);
+    opacity: 0;
+  }
+}
+/* --- End ReactBits StarBorder effect --- */
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -522,7 +791,10 @@ pre code {
   
   blockquote {
     padding: 24px;
-    margin: 32px 0;
+  }
+  
+  .tiered-questions {
+    padding: 24px;
   }
   
   table {
@@ -544,6 +816,10 @@ pre code {
   }
   
   blockquote {
+    padding: 20px;
+  }
+  
+  .tiered-questions {
     padding: 20px;
   }
 }
