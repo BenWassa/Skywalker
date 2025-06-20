@@ -1,32 +1,58 @@
-# Skywalker Quest Map
+# The Skywalker Quest Map
 
-A comprehensive, interactive companion guide to the Skywalker Quest podcast series, designed for personal and philosophical growth through mythic storytelling and structured reflection.
+A comprehensive, interactive guide for personal and philosophical growth, inspired by the mythic journey of Luke Skywalker. This project is a companion to the "Skywalker Quest Map" podcast, designed to transform passive listening into active reflection and self-discovery.
 
 ## Features
-- **Full Episode-by-Episode Guide:** Each stage of Luke Skywalker’s journey is explored in depth, with mythic, psychological, and symbolic analysis.
-- **Tiered Reflection Questions:** For every stage, three levels of reflection (Padawan, Knight, Master) help you move from basic comprehension to deep integration. All questions are unabridged and match the comprehensive Markdown guide.
-- **Milestone Briefings:** Each chapter includes milestone prompts to help you track your own growth and insights.
-- **Integration Canvas:** A final section for mapping your personal mythic arc and synthesizing your journey.
-- **Resource Appendices:** Glossary, recommended books, films, and podcasts for further exploration.
-- **Modern, Accessible Design:** Fully styled HTML and CSS for a beautiful, readable experience.
 
-## How to Use
-1. **Listen First:** Start each section by listening to the corresponding podcast episode.
-2. **Reflect Deeply:** Use a personal journal to answer the reflection questions. Move at your own pace—there are no right answers.
-3. **Engage with the Tiers:** Each reflection section offers Padawan (comprehension), Knight (analysis), and Master (integration) prompts.
-4. **Track Your Growth:** Use milestone and debrief tables to record insights and questions.
-5. **Integrate and Continue:** Complete the Integration Canvas and explore the appendices for ongoing learning.
+- **Fully Styled HTML & CSS**: Modern, visually engaging design with advanced gradients, card spotlights, and responsive layout.
+- **Comprehensive Content**: All five quest stages are included, each with:
+  - Podcast synopsis
+  - Key scenes, character shifts, and symbolic imagery
+  - Mythic & psychological foundations (with "Professor's Voice" commentary)
+  - Clearly formatted "Key Concepts Explored" sections
+  - Unabridged, tiered reflection questions (Padawan, Knight, Master) in individual spotlight cards
+  - Stage briefings, milestones, and checkpoint debrief tables
+- **Preview Row**: At the start, a preview of the tiered question cards for quick orientation.
+- **Professional Formatting**: Section headers are clear and navigable (e.g., "Stage One: The Desert Longing"). All content is cleanly structured for readability and depth.
+- **Appendices & Resources**: Glossary, recommended books/media, project background, and acknowledgments.
+
+## Usage
+
+1. **Open `skywalker_quest_map_guide.html`** in your browser for the full interactive experience.
+2. **Edit or extend** the guide by modifying the HTML and CSS files in `skywalker-quest-map/`.
+3. **Reference** the Markdown source (`alternates/skywalker_quest_map_guide.md`) for content alignment or further customization.
 
 ## File Structure
-- `skywalker_quest_map_guide.html` — Main guide (fully content-complete and styled)
-- `skywalker_quest_guide.css` — Custom styles for the guide
-- `alternates/skywalker_quest_map_guide.md` — Comprehensive Markdown source/reference
-- `testing/` — Test and backup versions of the site and styles
+
+- `skywalker-quest-map/skywalker_quest_map_guide.html` — Main guide (open this in your browser)
+- `skywalker-quest-map/skywalker_quest_guide.css` — Main stylesheet
+- `skywalker-quest-map/alternates/skywalker_quest_map_guide.md` — Comprehensive Markdown source
+- `skywalker-quest-map/testing/` — Test versions and backup styles
 
 ## Credits
-- Created by synthesizing research, philosophical curiosity, and a passion for Star Wars
-- AI collaboration: ChatGPT (vision/research), NotebookLM (podcast integration)
-- Inspired by the works of George Lucas, Joseph Campbell, Carl Jung, and mythic storytellers everywhere
+
+- **Content & Vision**: Synthesized from the "Skywalker Quest Map" podcast, mythological research, and philosophical inquiry
+- **AI Collaboration**: ChatGPT (content, structure, research), NotebookLM (podcast integration)
+- **Inspiration**: George Lucas, Joseph Campbell, Carl Jung, and the mythic tradition
+
+## Current State
+
+- All HTML and CSS are fully synchronized with the Markdown guide.
+- All tiered reflection questions are unabridged, individually carded, and labeled (Padawan, Knight, Master).
+- "Key Concepts Explored" uses `<h4>` headings (no bullets) for clarity.
+- Section headers are improved for navigation and professionalism.
+- h2 gradient includes green for a richer effect.
+- README is up to date with all major changes.
+
+## How to Contribute
+
+- Fork the repository and submit pull requests for improvements, new features, or corrections.
+- Suggestions for additional mythic frameworks, reflection prompts, or design enhancements are welcome.
+
+## License
+
+This project is for educational and personal growth purposes. See LICENSE for details.
 
 ---
+
 May the path reveal you to yourself.
