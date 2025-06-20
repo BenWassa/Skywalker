@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,14 +32,30 @@
         <li>First step</li>
         <li>Second step</li>
     </ol>
-    <div class="tiered-questions" onmousemove="updateSpotlight(event, this)">
+    <div class="tiered-questions">
         <div class="question-level">
-            <h4>Level 1 – Pathfinder</h4>
-            <ul><li>Sample question with spotlight card effect?</li></ul>
+            <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">
+                <h4>Level 1 – Pathfinder</h4>
+                <ul>
+                    <li>Sample question with spotlight card effect?</li>
+                </ul>
+            </div>
         </div>
         <div class="question-level">
-            <h4>Level 2 – Wayfinder</h4>
-            <ul><li>Another question with interactive hover?</li></ul>
+            <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">
+                <h4>Level 2 – Wayfinder</h4>
+                <ul>
+                    <li>Another question with interactive hover?</li>
+                </ul>
+            </div>
+        </div>
+        <div class="question-level">
+            <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">
+                <h4>Level 3 – Trailblazer</h4>
+                <ul>
+                    <li>Third level question with spotlight effect!</li>
+                </ul>
+            </div>
         </div>
     </div>
     <table>
