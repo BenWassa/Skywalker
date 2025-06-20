@@ -23,11 +23,13 @@
     border-radius: 1.2em;
     box-shadow: 0 4px 24px rgba(0,0,0,0.18);
     padding: 1.5em 1.2em;
-    min-width: 220px;
-    max-width: 320px;
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
     position: relative;
     transition: box-shadow 0.2s;
-    margin: 0 0.5em;
+    margin: 0 0 1.5em 0;
     color: #fff;
     overflow: hidden;
     /* Spotlight effect */
@@ -39,6 +41,12 @@
         rgba(35,38,58,1) 80%
     );
     border: 2px solid #4e5ba6;
+}
+/* Optional: keep cards from being too wide on huge screens */
+.crossnote .card-spotlight {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .card-spotlight h4 {
     margin-top: 0;
