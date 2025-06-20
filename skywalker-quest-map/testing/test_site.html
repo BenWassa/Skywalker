@@ -88,6 +88,44 @@
         justify-content: center;
     }
 }
+
+/* Replace your current .professor-voice-section blockquote CSS with this for a clean animated star border */
+
+.professor-voice-section blockquote {
+    position: relative;
+    border-radius: 1em;
+    border: none;
+    padding: 1.2em 1.5em;
+    margin: 1.2em 0;
+    background: #23263a;
+    color: #fff;
+    overflow: hidden;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+}
+
+.professor-voice-section blockquote::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1em;
+    padding: 2px;
+    background: 
+      repeating-conic-gradient(from var(--star-angle, 0deg), #ffe066 0deg 2deg, transparent 2deg 18deg);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 1;
+    animation: star-border-spin 4s linear infinite;
+}
+
+@keyframes star-border-spin {
+    100% {
+        --star-angle: 360deg;
+    }
+}
 </style>
 </head>
 <body>
