@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Skywalker Quest Map Test Template</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test_style.css">
+</head>
+<body>
+<div class="crossnote markdown-preview">
+    <div class="title-container">
+        <div class="title-backdrop"></div>
+        <div class="title-ornament left"></div>
+        <h1>Skywalker Quest Map Template</h1>
+        <div class="title-ornament right"></div>
+        <div class="subtitle">Test Layout</div>
+    </div>
+    <hr>
+    <h2>Section Heading</h2>
+    <p>This paragraph demonstrates <a href="#">link style</a>, <strong>strong text</strong>, and <em>emphasis</em>.</p>
+    <!-- Professor's Voice with StarBorder effect (ReactBits style, single edit point) -->
+    <h4 class="professor-voice-header">Professor's Voice</h4>
+    <div
+      class="star-border-container custom-class"
+      style="padding: 1px 0; --star-color: gold; --star-speed: 5s; width: 100%; max-width: 100%;"
+    >
+      <div
+        class="border-gradient-bottom"
+        style="background: radial-gradient(circle, var(--star-color), transparent 10%); animation-duration: var(--star-speed);"
+      ></div>
+      <div
+        class="border-gradient-top"
+        style="background: radial-gradient(circle, var(--star-color), transparent 10%); animation-duration: var(--star-speed);"
+      ></div>
+      <div class="inner-content" style="width: 100%; box-sizing: border-box;">
+        <blockquote style="width: 100%; box-sizing: border-box;">
+          <p>Professor's insight here…</p>
+        </blockquote>
+      </div>
+    </div>
+    <ul>
+        <li>List item one</li>
+        <li>List item two</li>
+    </ul>
+    <ol>
+        <li>First step</li>
+        <li>Second step</li>
+    </ol>
+    <!-- Tiered spotlight cards, now stacked with spacing -->
+    <div class="card-spotlight level1" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+        <h4>Level 1 – Pathfinder</h4>
+        <div>Sample question with spotlight card effect?</div>
+    </div>
+    <div class="card-spotlight level2" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+        <h4>Level 2 – Wayfinder</h4>
+        <div>Another question with interactive hover?</div>
+    </div>
+    <div class="card-spotlight level3" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+        <h4>Level 3 – Trailblazer</h4>
+        <div>Third level question with spotlight effect!</div>
+    </div>
+    <table>
+        <thead>
+            <tr><th>Stage</th><th>Key Idea</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>Desert</td><td>Longing</td></tr>
+            <tr><td>Cave</td><td>Confrontation</td></tr>
+        </tbody>
+    </table>
+    <pre><code>const example = 'code snippet';</code></pre>
+    <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">Hover effect demo - Move your mouse around!</div>
+
+    <import StarBorder from './StarBorder'>
+
+    <StarBorder
+      as="div"
+      className="custom-class"
+      color="cyan"
+      speed="5s"
+      thickness={1}
+    >
+      <blockquote>
+        <p>Professor's insight here…</p>
+      </blockquote>
+    </StarBorder>
+
+<script>
+// Spotlight effect JavaScript
+function updateSpotlight(e, element) {
+  const rect = element.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  
+  element.style.setProperty('--mouse-x', x + 'px');
+  element.style.setProperty('--mouse-y', y + 'px');
+}
+</script>
+</div>
+</body>
+</html>
