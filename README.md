@@ -5,6 +5,7 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
 ## Features
 
 - **Fully Styled HTML & CSS**: Modern, visually engaging design with advanced gradients, card spotlights, and responsive layout.
+- **ReactBits StarBorder Effect**: Professor's Voice sections now use the exact ReactBits.dev animated border effect, with dynamic color and speed, matching the working test implementation.
 - **Comprehensive Content**: All five quest stages are included, each with:
   - Podcast synopsis
   - Key scenes, character shifts, and symbolic imagery
@@ -42,6 +43,7 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
 - "Key Concepts Explored" uses `<h4>` headings (no bullets) for clarity.
 - Section headers are improved for navigation and professionalism.
 - h2 gradient includes green for a richer effect.
+- **Professor's Voice sections now use the ReactBits StarBorder effect with dynamic color and speed, as in the working test files.**
 - README is up to date with all major changes.
 
 ## How to Contribute
