@@ -32,3 +32,4 @@ The `testing` area now explores enhanced visual effects:
 - **StarBorder** component wraps professor quotes with an animated starry border.
 - Spotlight cards use radial gradients for hover effects.
 - Animation durations have been adjusted for smoother transitions.
+- Title text now uses a deeper 3D perspective for a more cinematic feel.

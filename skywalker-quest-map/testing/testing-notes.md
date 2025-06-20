@@ -10,5 +10,6 @@ This file tracks ideas and changes tried in the `testing` sandbox. Document what
 - Integrated **StarBorder** component into `test_site.html` for the Professor's Voice section.
 - Tweaked spotlight card hover effects with radial gradients.
 - Adjusted `title-glow` and `gradient-shift` animations for smoother timing.
+- Enhanced `h1` title style with a deeper 3D perspective effect.
 
 Add future notes below this line.
