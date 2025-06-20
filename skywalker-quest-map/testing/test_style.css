@@ -830,3 +830,55 @@ button:focus {
   outline: 2px solid var(--accent-blue);
   outline-offset: 2px;
 }
+
+/* Minimalist side navigation */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  background: rgba(15, 17, 26, 0.8);
+  border-right: 1px solid var(--border-subtle);
+  width: 60px;
+  max-height: 80vh;
+  overflow-y: auto;
+  transition: width 0.3s ease;
+  z-index: 1000;
+  white-space: nowrap;
+}
+
+.side-nav:hover {
+  width: 220px;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 10px;
+  margin: 0;
+}
+
+.side-nav li {
+  margin-bottom: 6px;
+}
+
+.side-nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: block;
+}
+
+.side-nav li.active > a {
+  color: var(--accent-gold);
+  font-weight: 600;
+}
+
+.side-nav .toc-h3 {
+  padding-left: 12px;
+  font-size: 0.9em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.side-nav:hover .toc-h3 {
+  opacity: 1;
+}
