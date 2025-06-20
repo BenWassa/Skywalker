@@ -97,5 +97,39 @@ function updateSpotlight(e, element) {
 }
 </script>
 </div>
+<nav id="page-nav" class="side-nav">
+    <ul></ul>
+</nav>
+<script>
+// Dynamic navigation builder and active section highlight
+document.addEventListener('DOMContentLoaded', () => {
+  const navList = document.querySelector('#page-nav ul');
+  const headings = Array.from(document.querySelectorAll('h2, h3'));
+  headings.forEach((heading) => {
+    if (!heading.id) {
+      heading.id = heading.textContent.trim().toLowerCase().replace(/\s+/g, '-');
+    }
+    const li = document.createElement('li');
+    li.className = heading.tagName.toLowerCase() === 'h3' ? 'toc-h3' : 'toc-h2';
+    const a = document.createElement('a');
+    a.textContent = heading.textContent;
+    a.href = `#${heading.id}`;
+    li.appendChild(a);
+    navList.appendChild(li);
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        document.querySelectorAll('#page-nav li').forEach((li) => li.classList.remove('active'));
+        const link = navList.querySelector(`a[href="#${entry.target.id}"]`);
+        if (link) link.parentElement.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' });
+
+  headings.forEach((h) => observer.observe(h));
+});
+</script>
 </body>
 </html>
