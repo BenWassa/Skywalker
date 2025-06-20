@@ -225,7 +225,7 @@ h2::after {
   position: absolute;
   bottom: -8px;
   left: 0;
-  width: 80px;
+  width: 800px;
   height: 2px;
   background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
   border-radius: 1px;
