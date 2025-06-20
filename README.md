@@ -1,43 +1,32 @@
 # Skywalker Quest Map
 
-Skywalker Quest Map is an interactive guide accompanying a podcast that explores Luke Skywalker's mythic journey. The site is built with plain HTML and CSS to present chapter summaries, reflection prompts and additional resources. Earlier prototypes included small React snippets, but these have been removed in favor of a simpler static approach.
+A comprehensive, interactive companion guide to the Skywalker Quest podcast series, designed for personal and philosophical growth through mythic storytelling and structured reflection.
 
-## Repository structure
+## Features
+- **Full Episode-by-Episode Guide:** Each stage of Luke Skywalker’s journey is explored in depth, with mythic, psychological, and symbolic analysis.
+- **Tiered Reflection Questions:** For every stage, three levels of reflection (Padawan, Knight, Master) help you move from basic comprehension to deep integration. All questions are unabridged and match the comprehensive Markdown guide.
+- **Milestone Briefings:** Each chapter includes milestone prompts to help you track your own growth and insights.
+- **Integration Canvas:** A final section for mapping your personal mythic arc and synthesizing your journey.
+- **Resource Appendices:** Glossary, recommended books, films, and podcasts for further exploration.
+- **Modern, Accessible Design:** Fully styled HTML and CSS for a beautiful, readable experience.
 
-- `skywalker-quest-map/` – main site files
-  - `skywalker_quest_map_guide.html` – interactive guide page
-  - `skywalker_quest_guide.css` – core stylesheet
-  - `alternates/` – experimental stylesheets and Markdown versions
-  - `testing/` – sandbox for layout and style experiments such as the **StarBorder** effect and spotlight cards (see `testing/testing-notes.md`)
-  - image assets used in the guide
-  - `.vscode/` – settings for the Live Server extension (port 5502)
+## How to Use
+1. **Listen First:** Start each section by listening to the corresponding podcast episode.
+2. **Reflect Deeply:** Use a personal journal to answer the reflection questions. Move at your own pace—there are no right answers.
+3. **Engage with the Tiers:** Each reflection section offers Padawan (comprehension), Knight (analysis), and Master (integration) prompts.
+4. **Track Your Growth:** Use milestone and debrief tables to record insights and questions.
+5. **Integrate and Continue:** Complete the Integration Canvas and explore the appendices for ongoing learning.
 
-## Usage
+## File Structure
+- `skywalker_quest_map_guide.html` — Main guide (fully content-complete and styled)
+- `skywalker_quest_guide.css` — Custom styles for the guide
+- `alternates/skywalker_quest_map_guide.md` — Comprehensive Markdown source/reference
+- `testing/` — Test and backup versions of the site and styles
 
-The guide is a static site. Open `skywalker-quest-map/skywalker_quest_map_guide.html` directly in your browser or run a lightweight server:
+## Credits
+- Created by synthesizing research, philosophical curiosity, and a passion for Star Wars
+- AI collaboration: ChatGPT (vision/research), NotebookLM (podcast integration)
+- Inspired by the works of George Lucas, Joseph Campbell, Carl Jung, and mythic storytellers everywhere
 
-```bash
-cd skywalker-quest-map
-python3 -m http.server
-```
-
-Then visit `http://localhost:8000/skywalker_quest_map_guide.html` to explore the map and reflection questions.
-
-If you prefer the VS Code **Live Server** extension, open the `skywalker-quest-map` folder and start Live Server. The included `.vscode/settings.json` configures the default port to `5502`.
-
-## Recent Updates
-
-The `testing` area now explores enhanced visual effects:
-
-- **StarBorder** component wraps professor quotes with an animated starry border.
-- Spotlight cards use radial gradients for hover effects.
-- Animation durations have been adjusted for smoother transitions.
-- Title text now uses a deeper 3D perspective for a more cinematic feel.
-- Styles and markup from the `testing` sandbox were merged into the main guide for a consistent look.
-
-## Development & Testing
-
-Ongoing experiments live in `skywalker-quest-map/testing`. Open `test_site.html`
-in a browser to preview new layout ideas and effects. The sandbox remains a safe
-space for rapid iteration even though many of its styles have been incorporated
-into the main guide.
+---
+May the path reveal you to yourself.
