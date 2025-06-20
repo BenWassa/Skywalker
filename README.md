@@ -8,9 +8,9 @@ Skywalker Quest Map is an interactive guide accompanying a podcast that explores
   - `skywalker_quest_map_guide.html` – interactive guide page
   - `skywalker_quest_guide.css` – core stylesheet
   - `alternates/` – experimental stylesheets and Markdown versions
-  - `testing/` – sandbox for layout and style experiments (see `testing/testing-notes.md`)
+  - `testing/` – sandbox for layout and style experiments such as the **StarBorder** effect and spotlight cards (see `testing/testing-notes.md`)
   - image assets used in the guide
-  - `.vscode/` – settings for the Live Server extension (port 5501)
+  - `.vscode/` – settings for the Live Server extension (port 5502)
 
 ## Usage
 
@@ -23,4 +23,12 @@ python3 -m http.server
 
 Then visit `http://localhost:8000/skywalker_quest_map_guide.html` to explore the map and reflection questions.
 
-If you prefer the VS Code **Live Server** extension, open the `skywalker-quest-map` folder and start Live Server. The included `.vscode/settings.json` configures the default port to `5501`.
+If you prefer the VS Code **Live Server** extension, open the `skywalker-quest-map` folder and start Live Server. The included `.vscode/settings.json` configures the default port to `5502`.
+
+## Recent Updates
+
+The `testing` area now explores enhanced visual effects:
+
+- **StarBorder** component wraps professor quotes with an animated starry border.
+- Spotlight cards use radial gradients for hover effects.
+- Animation durations have been adjusted for smoother transitions.
