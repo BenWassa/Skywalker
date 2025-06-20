@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css_test_styles.css">
+    <link rel="stylesheet" href="SpotlightCard.css">
 </head>
 <body>
 <div class="crossnote markdown-preview">
@@ -22,7 +22,7 @@
     <div class="professor-voice-section">
         <h4 class="professor-voice-header">Professor's Voice</h4>
         <blockquote>
-            <p>Placeholder insight about mythology and the hero's journey with animated star border effect.</p>
+            <p>Placeholder insight about mythology and the hero's journey.</p>
         </blockquote>
     </div>
     <ul>
@@ -33,14 +33,14 @@
         <li>First step</li>
         <li>Second step</li>
     </ol>
-    <div class="tiered-questions" onmousemove="updateSpotlight(event, this)">
+    <div class="tiered-questions">
         <div class="question-level">
             <h4>Level 1 – Pathfinder</h4>
-            <ul><li>Sample question with spotlight card effect?</li></ul>
+            <ul><li>Sample question?</li></ul>
         </div>
         <div class="question-level">
             <h4>Level 2 – Wayfinder</h4>
-            <ul><li>Another question with interactive hover?</li></ul>
+            <ul><li>Another question?</li></ul>
         </div>
     </div>
     <table>
@@ -53,19 +53,7 @@
         </tbody>
     </table>
     <pre><code>const example = 'code snippet';</code></pre>
-    <div class="card-spotlight" onmousemove="updateSpotlight(event, this)">Hover effect demo - Move your mouse around!</div>
-
-<script>
-// Spotlight effect JavaScript
-function updateSpotlight(e, element) {
-  const rect = element.getBoundingClientRect();
-  const x = e.clientX - rect.left;
-  const y = e.clientY - rect.top;
-  
-  element.style.setProperty('--mouse-x', x + 'px');
-  element.style.setProperty('--mouse-y', y + 'px');
-}
-</script>
+    <div class="card-spotlight">Hover effect demo</div>
 </div>
 </body>
 </html>
