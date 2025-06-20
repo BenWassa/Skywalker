@@ -152,38 +152,12 @@ h1 {
   letter-spacing: 0.02em;
   text-transform: uppercase;
   position: relative;
-  z-index: 2;
-  
-  /* Star Wars style text effects */
-  text-shadow: 
-    0 0 calc(10px * var(--title-glow)) var(--accent-gold),
-    0 0 calc(20px * var(--title-glow)) var(--accent-gold),
-    0 0 calc(40px * var(--title-glow)) rgba(255, 193, 7, 0.5),
-    0 2px 4px rgba(0, 0, 0, 0.8);
-  
-  /* Subtle 3D perspective like the opening crawl */
-  transform: perspective(400px) rotateX(15deg);
+
+  /* Enhanced 3D perspective for cinematic effect */
+  transform: perspective(600px) rotateX(22deg);
   transform-origin: center bottom;
-  
-  animation: title-glow 4s ease-in-out infinite;
 }
 
-@keyframes title-glow {
-  0%, 100% {
-    text-shadow: 
-      0 0 calc(10px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(20px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(40px * var(--title-glow)) rgba(255, 193, 7, 0.5),
-      0 2px 4px rgba(0, 0, 0, 0.8);
-  }
-  50% {
-    text-shadow: 
-      0 0 calc(15px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(30px * var(--title-glow)) var(--accent-gold),
-      0 0 calc(60px * var(--title-glow)) rgba(255, 193, 7, 0.7),
-      0 2px 4px rgba(0, 0, 0, 0.8);
-  }
-}
 
 /* GRADIENT TEXT EFFECT for H2 */
 h2 {
