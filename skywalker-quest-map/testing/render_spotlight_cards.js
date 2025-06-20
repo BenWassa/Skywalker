@@ -13,10 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Find all elements with the tag name 'SpotlightCard'
   const spotlightCardElements = document.querySelectorAll('SpotlightCard');
-  
+
   spotlightCardElements.forEach((element, index) => {
     // Extract attributes
-    const className = element.getAttribute('className') || '';
+    const className =
+      element.getAttribute('class') || element.getAttribute('className') || '';
     const spotlightColor = element.getAttribute('spotlightColor') || 'rgba(255, 255, 255, 0.25)';
 
     // Get the inner HTML as children
@@ -35,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
       React.createElement('div', { dangerouslySetInnerHTML: { __html: children } })
     );
 
-    ReactDOM.render(reactElement, wrapper);
+    const root = ReactDOM.createRoot(wrapper);
+    root.render(reactElement);
     console.log(`Rendered SpotlightCard ${index + 1} of ${spotlightCardElements.length}`);
   });
 });
