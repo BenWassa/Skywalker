@@ -42,18 +42,36 @@
     );
     border: 2px solid #4e5ba6;
 }
-/* Optional: keep cards from being too wide on huge screens */
-.crossnote .card-spotlight {
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
 .card-spotlight h4 {
     margin-top: 0;
     margin-bottom: 0.7em;
     font-size: 1.15em;
     letter-spacing: 0.03em;
-    color: #ffd700;
+    /* Default color removed for custom classes */
+}
+.card-spotlight.level1 {
+    border-color: #4ea6ff;
+}
+.card-spotlight.level1:hover {
+    box-shadow: 0 6px 32px 0 #4ea6ff55;
+}
+.card-spotlight.level2 {
+    border-color: #6cff7a;
+}
+.card-spotlight.level2:hover {
+    box-shadow: 0 6px 32px 0 #6cff7a55;
+}
+.card-spotlight.level3 {
+    border-color: #b97aff;
+}
+.card-spotlight.level3:hover {
+    box-shadow: 0 6px 32px 0 #b97aff55;
+}
+/* Optional: keep cards from being too wide on huge screens */
+.crossnote .card-spotlight {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .card-spotlight ul {
     margin: 0;
@@ -99,19 +117,19 @@
         <li>Second step</li>
     </ol>
     <!-- Tiered spotlight cards, now stacked with spacing -->
-    <div class="card-spotlight" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+    <div class="card-spotlight level1" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
         <h4>Level 1 – Pathfinder</h4>
         <ul>
             <li>Sample question with spotlight card effect?</li>
         </ul>
     </div>
-    <div class="card-spotlight" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+    <div class="card-spotlight level2" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
         <h4>Level 2 – Wayfinder</h4>
         <ul>
             <li>Another question with interactive hover?</li>
         </ul>
     </div>
-    <div class="card-spotlight" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
+    <div class="card-spotlight level3" style="margin-bottom: 1.5em;" onmousemove="updateSpotlight(event, this)">
         <h4>Level 3 – Trailblazer</h4>
         <ul>
             <li>Third level question with spotlight effect!</li>
