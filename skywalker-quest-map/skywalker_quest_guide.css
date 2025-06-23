@@ -703,7 +703,7 @@ pre code {
   position: absolute;
   width: 300%;
   height: 50%;
-  opacity: 0.7;
+  opacity: 0.8;
   bottom: -12px;
   right: -250%;
   border-radius: 50%;
@@ -713,7 +713,7 @@ pre code {
 
 .border-gradient-top {
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.8;
   width: 300%;
   height: 50%;
   top: -12px;
@@ -725,8 +725,8 @@ pre code {
 
 .inner-content {
   position: relative;
-  border: 1px solid #222;
-  background: #000;
+  border: 1px solid #ffea0144;
+  background: linear-gradient(135deg, rgba(24,28,44,0.98) 0%, rgba(25, 28, 43, 0.98) 100%);
   color: white;
   font-size: 16px;
   text-align: center;
