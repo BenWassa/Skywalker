@@ -356,8 +356,8 @@ p {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-style: normal;
-  margin-bottom: 16px;
-  opacity: 0.9;
+  margin-bottom: 10px;
+  opacity: 1;
   position: relative;
   z-index: 1;
 }
@@ -373,14 +373,14 @@ blockquote p {
 ul {
   list-style: none;
   padding-left: 0;
-  margin: 24px 0;
+  margin: 12px 0 24px 0;
 }
 
 ul li {
   position: relative;
   padding-left: 24px;
   margin-bottom: 8px;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 ul li::before {
@@ -613,101 +613,85 @@ pre code {
 
 /* Demo spotlight card */
 .card-spotlight {
-  background: var(--secondary-background);
-  border: 1px solid var(--border-subtle);
-  border-radius: 8px;
-  padding: 20px;
-  margin: 20px 0;
-  text-align: center;
-  color: var(--text-secondary);
   position: relative;
+  border-radius: 1.5rem;
+  border: 1.5px solid var(--border-subtle);
+  background: linear-gradient(135deg, rgba(24,28,44,0.98) 0%, rgba(34,38,58,0.98) 100%);
+  box-shadow: 0 4px 32px 0 rgba(59,130,246,0.10), 0 1.5px 8px 0 rgba(139,92,246,0.08);
+  padding: 2.2rem 1.6rem 2rem 1.6rem;
   overflow: hidden;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+  --spotlight-color: rgba(255, 255, 255, 0.08);
+  min-width: 220px;
+  max-width: 320px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  box-sizing: border-box;
+  color: var(--text-primary);
+  text-align: left;
+  margin: 20px 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: box-shadow 0.3s, border-color 0.3s, transform 0.2s;
 }
 
 .card-spotlight::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(238, 255, 7, 0.1) 0%,
-    transparent 50%
-  );
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), var(--spotlight-color), transparent 80%);
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
   pointer-events: none;
+  z-index: 0;
 }
 
-.card-spotlight:hover::before {
-  opacity: 1;
+.card-spotlight:hover::before,
+.card-spotlight:focus-within::before {
+  opacity: 0.7;
 }
 
-.card-spotlight:hover {
-  border-color: rgba(255, 193, 7, 0.3);
-  transform: translateY(-2px);
+.card-spotlight:hover,
+.card-spotlight:focus-within {
+  border-color: var(--accent-blue);
+  box-shadow: 0 8px 40px 0 rgba(59,130,246,0.18), 0 2px 12px 0 rgba(139,92,246,0.12);
+  transform: translateY(-2px) scale(1.012);
 }
 
-/* Spotlight card color levels */
+.card-spotlight h4 {
+  color: var(--accent-gold);
+  font-size: 1.13em;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 8px rgba(255,193,7,0.08);
+}
+
+.card-spotlight h5 {
+  color: var(--text-secondary);
+  font-size: 1em;
+  font-weight: 400;
+  margin: 0 0 6px 0;
+  line-height: 1.5;
+}
+
 .card-spotlight.level1 {
-  border-color: #4ea6ff;
+  border-left: 4px solid rgba(255, 217, 0, 0.233);
 }
-.card-spotlight.level1:hover {
-  box-shadow: 0 6px 32px 0 #4ea6ff55;
-  border-color: #4ea6ff;
-}
-.card-spotlight.level1 h4 {
-  color: #4ea6ff;
-}
-.card-spotlight.level1::before {
-  background: radial-gradient(
-    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    #4ea6ff33 0%,
-    transparent 50%
-  );
-}
-
 .card-spotlight.level2 {
-  border-color: #6cff7a;
+  border-left: 4px solid rgba(255, 217, 0, 0.616);
 }
-.card-spotlight.level2:hover {
-  box-shadow: 0 6px 32px 0 #6cff7a55;
-  border-color: #6cff7a;
-}
-.card-spotlight.level2 h4 {
-  color: #6cff7a;
-}
-.card-spotlight.level2::before {
-  background: radial-gradient(
-    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    #6cff7a33 0%,
-    transparent 50%
-  );
-}
-
 .card-spotlight.level3 {
-  border-color: #b97aff;
-}
-.card-spotlight.level3:hover {
-  box-shadow: 0 6px 32px 0 #b97aff55;
-  border-color: #b97aff;
-}
-.card-spotlight.level3 h4 {
-  color: #b97aff;
-}
-.card-spotlight.level3::before {
-  background: radial-gradient(
-    300px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    #b97aff33 0%,
-    transparent 50%
-  );
+  border-left: 4px solid rgb(255, 217, 0);
 }
 
-/* --- ReactBits StarBorder effect (verbatim) --- */
+/* --- ReactBits.dev StarBorder Effect: Dynamic Color & Speed --- */
 .star-border-container {
   display: inline-block;
   position: relative;
@@ -719,7 +703,7 @@ pre code {
   position: absolute;
   width: 300%;
   height: 50%;
-  opacity: 0.7;
+  opacity: 0.8;
   bottom: -12px;
   right: -250%;
   border-radius: 50%;
@@ -729,7 +713,7 @@ pre code {
 
 .border-gradient-top {
   position: absolute;
-  opacity: 0.7;
+  opacity: 0.8;
   width: 300%;
   height: 50%;
   top: -12px;
@@ -741,8 +725,8 @@ pre code {
 
 .inner-content {
   position: relative;
-  border: 1px solid #222;
-  background: #000;
+  border: 1px solid #ffea0144;
+  background: linear-gradient(135deg, rgba(24,28,44,0.98) 0%, rgba(25, 28, 43, 0.98) 100%);
   color: white;
   font-size: 16px;
   text-align: center;
@@ -772,9 +756,8 @@ pre code {
     opacity: 0;
   }
 }
-/* --- End ReactBits StarBorder effect --- */
+/* --- End Dynamic StarBorder Effect --- */
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .crossnote.markdown-preview {
     padding: 40px 24px;
@@ -831,54 +814,112 @@ button:focus {
   outline-offset: 2px;
 }
 
-/* Minimalist side navigation */
-.side-nav {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  background: rgba(15, 17, 26, 0.8);
-  border-right: 1px solid var(--border-subtle);
-  width: 60px;
-  max-height: 80vh;
-  overflow-y: auto;
-  transition: width 0.3s ease;
-  z-index: 1000;
-  white-space: nowrap;
-}
-
-.side-nav:hover {
-  width: 220px;
-}
-
-.side-nav ul {
+/* Remove bullets and indentation from ul/li inside .card-spotlight */
+.card-spotlight ul {
   list-style: none;
-  padding: 10px;
-  margin: 0;
+  padding-left: 0;
+  margin: 0 0 12px 0;
 }
 
-.side-nav li {
-  margin-bottom: 6px;
-}
-
-.side-nav a {
+.card-spotlight ul li {
+  padding-left: 0;
+  position: static;
   color: var(--text-secondary);
-  text-decoration: none;
-  display: block;
+  font-size: 1em;
 }
 
-.side-nav li.active > a {
+/* Ensure the .tiered-question-row uses flex-direction: row for a true three-column layout on desktop, with a media query to stack vertically on small screens. This guarantees the cards appear side by side for tiered questions. */
+.tiered-question-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 32px 0 40px 0;
+  justify-content: center;
+  align-items: stretch;
+}
+.card-spotlight {
+  min-width: 220px;
+  max-width: 320px;
+  flex: 1 1 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+}
+@media (max-width: 900px) {
+  .tiered-question-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
+/* Side bar navigation */
+.cosmic-nav .nav-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 6px var(--accent-blue));
+  transition: filter 0.2s;
+}
+.cosmic-nav li.active .nav-icon {
+  filter: drop-shadow(0 0 16px var(--accent-gold));
+}
+
+.cosmic-nav .nav-label {
+  display: inline-block;
+  font-family: 'Orbitron', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.05em;
+  letter-spacing: 0.04em;
   color: var(--accent-gold);
-  font-weight: 600;
-}
-
-.side-nav .toc-h3 {
-  padding-left: 12px;
-  font-size: 0.9em;
+  vertical-align: middle;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s;
+  margin-left: 0.2em;
 }
 
-.side-nav:hover .toc-h3 {
+.side-nav:hover .nav-label {
   opacity: 1;
+}
+
+.cosmic-nav .nav-progress {
+  display: block;
+  width: 84px;
+  height: 5px;
+  margin: 8px 0 0 42px;
+  background: rgba(229,231,235,0.08);
+  border-radius: 2.5px;
+  position: relative;
+  overflow: hidden;
+}
+.cosmic-nav .nav-progress-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  border-radius: 2.5px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+  transition: width 0.4s cubic-bezier(.6,.3,0,1.2);
+  z-index: 2;
+}
+.cosmic-nav .nav-progress-dot {
+  position: absolute;
+  top: -3px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent-blue);
+  box-shadow: 0 0 12px 2px var(--accent-blue), 0 0 4px 0 var(--accent-purple);
+  transition: left 0.4s cubic-bezier(.6,.3,0,1.2);
+  z-index: 3;
+}
+.cosmic-nav li.active .nav-progress-dot {
+  background: var(--accent-gold);
+  box-shadow: 0 0 16px 5px var(--accent-gold), 0 0 8px 0 var(--accent-orange);
 }
