@@ -16,6 +16,16 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
   - Dynamic gradient text effects
   - Cinematic 3D title perspective
 
+- **🎧 Audio Integration**:
+  - Standalone podcast episode: "Luke Skywalker: A New Hope's Archetypal Journey"
+  - Audio content explores the mythological foundations of the Hero's Journey
+  - Enhanced listening experience paired with visual guide
+
+- **🔗 Workflow Integration**:
+  - GitHub Pages hosting for public access
+  - Notion workspace integration with published HTML
+  - Seamless content management and deployment pipeline
+
 - **📚 Comprehensive Content Structure**:
   - Complete Hero's Journey framework
   - Mythic and psychological foundations
@@ -31,21 +41,39 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
 
 ## 🚀 Quick Start
 
+### 🌐 Online Experience
+- **Visit the live site**: [GitHub Pages hosted version](https://benwassa.github.io/Skywalker/)
+- **Listen to the podcast**: Standalone audio episode available and integrated with the quest content
+
+### 💻 Local Development
 1. **Open `Skywalker Quest.html`** in your browser for the full interactive experience
 2. **Customize** by editing the HTML content and CSS styles in `allstyles.css`
 3. **Reference** the Markdown source (`Skywalker Quest.md`) for content structure
+4. **Deploy changes** by updating files in the `docs/` folder for GitHub Pages
 
 ## 📁 Project Structure
 
 ```
-skywalker-quest-map/
-├── Skywalker Quest.html     # Main interactive guide
-├── Skywalker Quest.md       # Markdown source content
-├── allstyles.css           # Complete stylesheet with all effects
-├── Images/                 # Generated artwork and visuals
-├── alternates/            # Alternative CSS versions and backups
-└── testing/              # Development and testing files
+Skywalker/
+├── docs/                   # GitHub Pages hosting (live site)
+│   ├── index.html         # Portfolio/landing page
+│   └── stylesheet.css     # Portfolio styling
+├── skywalker-quest-map/   # Main development files
+│   ├── Skywalker Quest.html     # Main interactive guide
+│   ├── Skywalker Quest.md       # Markdown source content
+│   ├── allstyles.css           # Complete stylesheet with all effects
+│   ├── Images/                 # Generated artwork and visuals
+│   ├── Podcast Audio/          # Audio content
+│   │   └── Luke Skywalker_ A New Hope's Archetypal Journey.wav
+│   ├── alternates/            # Alternative CSS versions and backups
+│   └── testing/              # Development and testing files
+└── README.md              # This file
 ```
+
+### 🌐 Deployment Architecture
+- **`docs/`**: GitHub Pages deployment for public access and portfolio showcase
+- **`skywalker-quest-map/`**: Development environment and full feature set
+- **Integration**: Notion workspace now references the published HTML page for seamless workflow
 
 ## 🎯 Key Design Elements
 
@@ -89,6 +117,28 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 - Lightsaber and cosmic journey imagery  
 - Cave revelation and warrior contemplation scenes
 
+## 🎧 Audio Content
+
+**Podcast Integration**: The Skywalker Quest Map includes a standalone podcast episode that provides deep analysis of the Hero's Journey:
+
+- **Episode**: "Luke Skywalker: A New Hope's Archetypal Journey" 
+- **Content**: In-depth exploration of mythological themes and psychological foundations
+- **Format**: High-quality WAV audio file for optimal listening experience
+- **Integration**: Audio companion designed to enhance the visual quest map experience
+- **Accessibility**: Multiple content formats for diverse learning preferences
+
+## 🔄 Workflow & Integration
+
+### GitHub Pages Deployment
+- **Live Site**: Hosted via GitHub Pages using the `docs/` folder
+- **Portfolio Integration**: Landing page showcases the project professionally
+- **Automatic Updates**: Changes pushed to `docs/` deploy automatically
+
+### Notion Workspace
+- **Content Management**: Notion now references the published HTML page
+- **Collaborative Planning**: Team workflows integrated with live deployment
+- **Documentation Hub**: Central knowledge base linked to production site
+
 ## 🎭 Credits & Inspiration
 
 - **Mythological Framework**: Joseph Campbell's Hero's Journey and Carl Jung's psychological insights
@@ -105,13 +155,17 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 - ✅ Interactive spotlight card system for questions
 - ✅ Enhanced Professor's Voice sections with animated borders
 - ✅ Professional typography hierarchy with gradient effects
+- ✅ **GitHub Pages deployment via docs/ folder**
+- ✅ **Standalone podcast episode uploaded and integrated**
+- ✅ **Notion workspace integration with published HTML page**
 
 ### Future Enhancements
 - [ ] Dark/light theme toggle
 - [ ] Progress tracking system
 - [ ] Printable PDF generation
-- [ ] Audio integration capabilities
+- [ ] Enhanced audio player integration
 - [ ] Mobile app version
+- [ ] User authentication for progress saving
 
 ## 🤝 Contributing
 
@@ -129,6 +183,8 @@ We welcome contributions to enhance the Skywalker Quest Map experience:
 3. Commit your changes (`git commit -m 'Add amazing improvement'`)
 4. Push to the branch (`git push origin feature/amazing-improvement`)
 5. Open a Pull Request
+
+**Note**: Changes to the live site should be made in the `docs/` folder. Development work can be done in `skywalker-quest-map/` and then deployed to `docs/` when ready.
 
 ## 📄 License
 
