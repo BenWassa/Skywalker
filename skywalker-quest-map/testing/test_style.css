@@ -375,6 +375,26 @@ blockquote p {
   position: relative;
 }
 
+.podcast-icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0.5rem;
+  stroke: var(--accent-gold);
+  filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.4));
+}
+
+.gradient-text .podcast-icon {
+  stroke: url(#podcast-gradient);
+}
+
+/* SVG gradient definition for the podcast icon */
+.gradient-text:before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
 .custom-audio-player {
   background: linear-gradient(135deg, rgba(24, 28, 44, 0.98) 0%, rgba(25, 28, 43, 0.98) 100%);
   padding: 1.5rem;

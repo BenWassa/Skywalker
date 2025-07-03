@@ -16,7 +16,17 @@
     </script>
 </head>
 <body>
-    
+      <!-- SVG definitions for gradients -->
+      <svg width="0" height="0" style="position: absolute;">
+        <defs>
+          <linearGradient id="podcast-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#8B5CF6;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#FFC107;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+      
       <div class="crossnote markdown-preview">
         <main> <!-- Main content container for semantic clarity -->
             <header> <!-- Semantic header for the main title and subtitle -->
@@ -35,7 +45,15 @@
                 <div class="professor-voice-container">
                     <div class="animated-border"></div>
                     <div class="audio-content">
-                        <h3 class="gradient-text">🎧 Audio Companion</h3>
+                        <h3 class="gradient-text">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="url(#podcast-gradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="podcast-icon">
+                                <path d="M16.85 18.58a9 9 0 1 0-9.7 0"/>
+                                <path d="M8 14a5 5 0 1 1 8 0"/>
+                                <circle cx="12" cy="11" r="1"/>
+                                <path d="M13 17a1 1 0 1 0-2 0l.5 4.5a.5.5 0 1 0 1 0Z"/>
+                            </svg>
+                            Audio Companion
+                        </h3>
                         <p class="professor-commentary">
                             Begin your journey with this in-depth exploration of Luke Skywalker's archetypal path. 
                             This podcast episode provides the mythological foundation that underlies the entire quest map.
