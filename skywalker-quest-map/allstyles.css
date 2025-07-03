@@ -864,7 +864,7 @@ button:focus {
    - Set to: print          (A3 print styles ENABLED)
    - Set to: not all        (A3 print styles DISABLED)
 */
-@media not all {
+@media print {
   /* A3 Paper Setup (297mm x 420mm) */
   @page {
     size: A3;
