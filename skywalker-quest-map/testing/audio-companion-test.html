@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Companion Custom Test</title>
+  <link rel="stylesheet" href="audio-companion-test.css">
+</head>
+<body>
+  <section class="audio-companion-section">
+    <div class="custom-audio-player" id="audioPlayer">
+      <button class="play-pause" id="playPauseBtn" aria-label="Play/Pause">
+        ▶️
+      </button>
+      <div class="timeline-container">
+        <div class="timeline-bar" id="timelineBar">
+          <div class="timeline-progress" id="timelineProgress"></div>
+        </div>
+        <input type="range" id="timeline" min="0" max="100" value="0" step="0.1" aria-label="Seek timeline">
+      </div>
+      <span class="current-time" id="currentTime">0:00</span>
+      <span class="duration" id="duration">0:00</span>
+      <audio id="audio" preload="metadata">
+        <source src="../Podcast Audio/Luke Skywalker_ A New Hope's Archetypal Journey.wav" type="audio/wav">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </section>
+  <script>
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const timeline = document.getElementById('timeline');
+    const timelineBar = document.getElementById('timelineBar');
+    const timelineProgress = document.getElementById('timelineProgress');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
+
+    function formatTime(sec) {
+      sec = Math.floor(sec);
+      const m = Math.floor(sec / 60);
+      const s = sec % 60;
+      return `${m}:${s.toString().padStart(2, '0')}`;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+      timeline.max = audio.duration;
+      durationEl.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      timeline.value = audio.currentTime;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
+      const percent = (audio.currentTime / audio.duration) * 100;
+      timelineProgress.style.width = percent + '%';
+    });
+
+    timeline.addEventListener('input', () => {
+      audio.currentTime = timeline.value;
+    });
+
+    playPauseBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      }
+    });
+
+    audio.addEventListener('play', () => {
+      playPauseBtn.textContent = '⏸️';
+    });
+    audio.addEventListener('pause', () => {
+      playPauseBtn.textContent = '▶️';
+    });
+  </script>
+</body>
+</html>

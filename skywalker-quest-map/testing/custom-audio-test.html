@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Audio Player Test - Lightsaber Timeline</title>
+  <link rel="stylesheet" href="custom-audio-test.css">
+  <style>
+    body { background: #0A0B14; color: #E5E7EB; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+  </style>
+</head>
+<body>
+  <div class="audio-companion-test">
+    <h2>Audio Companion (Custom Player Test)</h2>
+    <div class="custom-audio-player">
+      <button id="play-pause" aria-label="Play" class="audio-btn play"></button>
+      <div class="timeline-container">
+        <div id="timeline-bar" class="timeline-bar">
+          <div id="timeline-progress" class="timeline-progress"></div>
+        </div>
+        <input type="range" id="timeline-slider" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+      </div>
+      <span id="current-time" class="audio-time">0:00</span> /
+      <span id="duration" class="audio-time">0:00</span>
+      <audio id="audio" preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+  <script>
+    // Minimal JS for play/pause and timeline
+    const audio = document.getElementById('audio');
+    const playPause = document.getElementById('play-pause');
+    const timelineSlider = document.getElementById('timeline-slider');
+    const timelineProgress = document.getElementById('timeline-progress');
+    const currentTime = document.getElementById('current-time');
+    const duration = document.getElementById('duration');
+
+    function formatTime(sec) {
+      sec = Math.floor(sec);
+      return `${Math.floor(sec/60)}:${('0'+(sec%60)).slice(-2)}`;
+    }
+
+    audio.addEventListener('loadedmetadata', () => {
+      timelineSlider.max = audio.duration;
+      duration.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', () => {
+      timelineSlider.value = audio.currentTime;
+      timelineProgress.style.width = (audio.currentTime/audio.duration*100)+"%";
+      currentTime.textContent = formatTime(audio.currentTime);
+    });
+
+    timelineSlider.addEventListener('input', (e) => {
+      audio.currentTime = timelineSlider.value;
+    });
+
+    playPause.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playPause.classList.remove('play');
+        playPause.classList.add('pause');
+        playPause.setAttribute('aria-label', 'Pause');
+      } else {
+        audio.pause();
+        playPause.classList.remove('pause');
+        playPause.classList.add('play');
+        playPause.setAttribute('aria-label', 'Play');
+      }
+    });
+
+    audio.addEventListener('play', () => {
+      playPause.classList.remove('play');
+      playPause.classList.add('pause');
+      playPause.setAttribute('aria-label', 'Pause');
+    });
+    audio.addEventListener('pause', () => {
+      playPause.classList.remove('pause');
+      playPause.classList.add('play');
+      playPause.setAttribute('aria-label', 'Play');
+    });
+  </script>
+</body>
+</html>
