@@ -237,6 +237,29 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 
 ## 🛠️ Development
 
+### 🆕 July 2025 Upgrades
+
+- **Subtitle System Overhaul**
+  - Subtitles now reliably sync with audio playback using a robust, custom JavaScript VTT parser.
+  - Subtitles can be toggled on/off via the three-dot menu.
+  - Debug/test options in the menu: show a test subtitle, debug VTT loading, and seek directly to the first subtitle cue for instant verification.
+  - Improved accessibility: subtitle display is fully keyboard and screen-reader friendly.
+
+- **Bug Fixes & Robustness**
+  - Fixed issues with subtitle display not updating due to JavaScript scoping and event listener placement.
+  - Enhanced error handling and console logging for easier debugging and user support.
+  - Ensured subtitle system works on all browsers and on GitHub Pages.
+
+- **UI/UX Enhancements**
+  - Subtitle overlay now features a more prominent, animated style for better readability.
+  - Added smooth fade-in transitions and responsive sizing for mobile and desktop.
+  - Overflow menu now includes advanced debug/test tools for maintainers.
+
+- **Developer Experience**
+  - Code refactored for maintainability: subtitle update logic is now global and robust.
+  - Added clear comments and debug hooks for future contributors.
+  - README and documentation updated to reflect all new features and troubleshooting steps.
+
 ### Recent Updates
 - ✅ Complete CSS rewrite with modern effects and animations
 - ✅ Responsive design for all screen sizes  

@@ -121,6 +121,18 @@
           </svg>
           <span>Test Subtitle</span>
         </div>
+        <div class="options-menu-item" id="debugSubtitleBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          </svg>
+          <span>Debug VTT</span>
+        </div>
+        <div class="options-menu-item" id="seekToSubtitleBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+          <span>Seek to First Subtitle</span>
+        </div>
       </div>
     </div>
     
@@ -714,6 +726,8 @@ const optionsBtn = document.getElementById('optionsBtn');
 const optionsMenu = document.getElementById('optionsMenu');
 const downloadBtn = document.getElementById('downloadBtn');
 const testSubtitleBtn = document.getElementById('testSubtitleBtn');
+const debugSubtitleBtn = document.getElementById('debugSubtitleBtn');
+const seekToSubtitleBtn = document.getElementById('seekToSubtitleBtn');
 
 // Subtitle state
 let subtitlesEnabled = false;
@@ -984,11 +998,71 @@ if (testSubtitleBtn && subtitleDisplay && subtitleText) {
   });
 }
 
+// Debug VTT functionality
+if (debugSubtitleBtn && subtitleDisplay && subtitleText) {
+  debugSubtitleBtn.addEventListener('click', () => {
+    console.log('Debug info:');
+    console.log('VTT data loaded:', !!vttData);
+    console.log('Subtitles enabled:', subtitlesEnabled);
+    console.log('Audio current time:', audio?.currentTime);
+    console.log('Audio duration:', audio?.duration);
+    
+    if (vttData && vttData.length > 0) {
+      subtitleDisplay.style.display = 'block';
+      subtitleText.textContent = 'VTT First Cue: ' + vttData[0].text;
+      console.log('Showing first VTT cue:', vttData[0]);
+    } else {
+      subtitleText.textContent = 'No VTT data loaded';
+    }
+    
+    optionsMenu.style.display = 'none';
+  });
+}
+
+// Seek to first subtitle functionality
+if (seekToSubtitleBtn && audio) {
+  seekToSubtitleBtn.addEventListener('click', () => {
+    if (audio.duration) {
+      audio.currentTime = 0.5; // Seek to 0.5 seconds where first subtitle should appear
+      console.log('Seeked to first subtitle time:', audio.currentTime);
+    }
+    optionsMenu.style.display = 'none';
+  });
+}
+
+// Update subtitles based on current time - moved outside conditional block
+function updateSubtitles() {
+  if (!vttData || !audio) return;
+  
+  const currentTime = audio.currentTime;
+  let currentSubtitle = '';
+  
+  for (const cue of vttData) {
+    if (currentTime >= cue.start && currentTime <= cue.end) {
+      currentSubtitle = cue.text;
+      break;
+    }
+  }
+  
+  if (subtitlesEnabled && subtitleText) {
+    if (subtitleText.textContent !== currentSubtitle) {
+      subtitleText.textContent = currentSubtitle;
+      console.log('Updated subtitle:', currentSubtitle);
+    }
+  }
+}
+
+// Add timeupdate listener for all audio functionality
+if (audio) {
+  audio.addEventListener('timeupdate', updateSubtitles);
+}
+
 // Subtitle functionality
 if (subtitlesBtn && subtitleDisplay && subtitleText) {
   console.log('Setting up subtitle functionality...');
   
   // Load VTT file
+  console.log('Loading VTT file...');
   fetch('transcript.vtt')
     .then(response => {
       if (!response.ok) {
@@ -997,8 +1071,10 @@ if (subtitlesBtn && subtitleDisplay && subtitleText) {
       return response.text();
     })
     .then(vttContent => {
+      console.log('VTT file loaded, content length:', vttContent.length);
       vttData = parseVTT(vttContent);
-      console.log('VTT loaded successfully:', vttData.length + ' cues');
+      console.log('VTT parsed successfully:', vttData.length + ' cues');
+      console.log('First few cues:', vttData.slice(0, 3));
     })
     .catch(error => {
       console.error('Error loading VTT file:', error);
@@ -1011,9 +1087,12 @@ if (subtitlesBtn && subtitleDisplay && subtitleText) {
     if (subtitlesEnabled) {
       subtitleDisplay.style.display = 'block';
       subtitlesBtn.querySelector('span').textContent = 'Hide Subtitles';
+      console.log('Subtitle display shown');
     } else {
       subtitleDisplay.style.display = 'none';
       subtitlesBtn.querySelector('span').textContent = 'Show Subtitles';
+      subtitleText.textContent = '';
+      console.log('Subtitle display hidden');
     }
     
     optionsMenu.style.display = 'none';
@@ -1065,30 +1144,6 @@ if (subtitlesBtn && subtitleDisplay && subtitleText) {
     return 0;
   }
 
-  // Update subtitles based on current time
-  function updateSubtitles() {
-    if (!subtitlesEnabled || !vttData || !audio) return;
-    
-    const currentTime = audio.currentTime;
-    let currentSubtitle = '';
-    
-    for (const cue of vttData) {
-      if (currentTime >= cue.start && currentTime <= cue.end) {
-        currentSubtitle = cue.text;
-        break;
-      }
-    }
-    
-    if (subtitleText.textContent !== currentSubtitle) {
-      subtitleText.textContent = currentSubtitle;
-      console.log('Updated subtitle:', currentSubtitle);
-    }
-  }
-
-  // Update subtitles on time update
-  if (audio) {
-    audio.addEventListener('timeupdate', updateSubtitles);
-  }
 } else {
   console.log('Subtitle elements not found:', {
     subtitlesBtn: !!subtitlesBtn,
