@@ -17,8 +17,6 @@ This file tracks ideas and changes tried in the `testing` sandbox. Document what
 - **Files Created**: 
   - `audio-companion-section-test.html` - Complete standalone test
   - `audio-companion-section-test.css` - All custom player styles
-  - `custom-audio-test.html` - Basic audio element test
-  - `audio-companion-test.html` & `audio-companion-test.css` - Early prototypes
 
 ### Custom Audio Player Features Developed:
 - **Gradient Timeline**: Beautiful blue→green→purple animated progress bar
