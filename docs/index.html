@@ -100,11 +100,33 @@
           <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
         </svg>
       </button>
+      
+      <!-- Options Menu -->
+      <div class="options-menu" id="optionsMenu" style="display: none;">
+        <div class="options-menu-item" id="downloadBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+          </svg>
+          <span>Download Audio</span>
+        </div>
+        <div class="options-menu-item" id="subtitlesBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 12h4v2H4v-2zm0 4h4v2H4v-2zm6 0h4v2h-4v-2zm6 0h4v2h-4v-2zm0-4h4v2h-4v-2zm-6 0h4v2h-4v-2z"/>
+          </svg>
+          <span>Show Subtitles</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Subtitle Display -->
+    <div class="subtitle-display" id="subtitleDisplay" style="display: none;">
+      <div class="subtitle-text" id="subtitleText"></div>
     </div>
     
     <!-- Hidden native audio element -->
     <audio id="heroJourneyPodcast" preload="auto" style="display: none;">
         <source src="../skywalker-quest-map/Podcast Audio/Luke Skywalker_ A New Hope's Archetypal Journey.wav" type="audio/wav">
+        <track kind="subtitles" src="transcript.vtt" srclang="en" label="English" id="subtitleTrack">
         <p>Your browser doesn't support audio. <a href="../skywalker-quest-map/Podcast Audio/Luke Skywalker_ A New Hope's Archetypal Journey.wav" download>Download the podcast</a></p>
     </audio>
   </div>
@@ -900,6 +922,157 @@ if (audio && playPauseBtn) {
         break;
     }
   });
+}
+
+// Options Menu and Subtitle Functionality
+const optionsBtn = document.getElementById('optionsBtn');
+const optionsMenu = document.getElementById('optionsMenu');
+const downloadBtn = document.getElementById('downloadBtn');
+const subtitlesBtn = document.getElementById('subtitlesBtn');
+const subtitleDisplay = document.getElementById('subtitleDisplay');
+const subtitleText = document.getElementById('subtitleText');
+const subtitleTrack = document.getElementById('subtitleTrack');
+
+let subtitlesEnabled = false;
+
+// Toggle options menu
+if (optionsBtn && optionsMenu) {
+  optionsBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    optionsMenu.style.display = optionsMenu.style.display === 'none' ? 'block' : 'none';
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!optionsMenu.contains(e.target) && !optionsBtn.contains(e.target)) {
+      optionsMenu.style.display = 'none';
+    }
+  });
+}
+
+// Download functionality
+if (downloadBtn && audio) {
+  downloadBtn.addEventListener('click', () => {
+    const audioSrc = audio.querySelector('source').src;
+    const link = document.createElement('a');
+    link.href = audioSrc;
+    link.download = 'Luke Skywalker - A New Hope\'s Archetypal Journey.wav';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    optionsMenu.style.display = 'none';
+  });
+}
+
+// Subtitle functionality
+if (subtitlesBtn && subtitleDisplay && subtitleText && subtitleTrack) {
+  subtitlesBtn.addEventListener('click', () => {
+    subtitlesEnabled = !subtitlesEnabled;
+    
+    if (subtitlesEnabled) {
+      subtitleDisplay.style.display = 'block';
+      subtitleTrack.mode = 'showing';
+      subtitlesBtn.querySelector('span').textContent = 'Hide Subtitles';
+    } else {
+      subtitleDisplay.style.display = 'none';
+      subtitleTrack.mode = 'hidden';
+      subtitlesBtn.querySelector('span').textContent = 'Show Subtitles';
+    }
+    
+    optionsMenu.style.display = 'none';
+  });
+
+  // Listen for subtitle cue changes
+  if (subtitleTrack.track) {
+    subtitleTrack.track.addEventListener('cuechange', () => {
+      if (subtitlesEnabled && subtitleTrack.track.activeCues.length > 0) {
+        subtitleText.textContent = subtitleTrack.track.activeCues[0].text;
+      } else {
+        subtitleText.textContent = '';
+      }
+    });
+  }
+
+  // Alternative method: manually parse VTT and sync with audio time
+  let vttData = null;
+  
+  // Load VTT file
+  fetch('transcript.vtt')
+    .then(response => response.text())
+    .then(vttContent => {
+      vttData = parseVTT(vttContent);
+    })
+    .catch(error => {
+      console.log('VTT file not found or error loading:', error);
+    });
+
+  // Parse VTT content
+  function parseVTT(vttContent) {
+    const lines = vttContent.split('\n');
+    const cues = [];
+    let currentCue = null;
+    
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i].trim();
+      
+      if (line.includes('-->')) {
+        const [startTime, endTime] = line.split('-->').map(t => t.trim());
+        currentCue = {
+          start: parseTimestamp(startTime),
+          end: parseTimestamp(endTime),
+          text: ''
+        };
+      } else if (line && currentCue && !line.startsWith('WEBVTT') && !line.match(/^\d+$/)) {
+        if (currentCue.text) {
+          currentCue.text += ' ';
+        }
+        currentCue.text += line;
+      } else if (!line && currentCue) {
+        cues.push(currentCue);
+        currentCue = null;
+      }
+    }
+    
+    if (currentCue) {
+      cues.push(currentCue);
+    }
+    
+    return cues;
+  }
+
+  // Parse timestamp (e.g., "00:01:30.500" to seconds)
+  function parseTimestamp(timestamp) {
+    const parts = timestamp.split(':');
+    if (parts.length === 3) {
+      const hours = parseInt(parts[0], 10);
+      const minutes = parseInt(parts[1], 10);
+      const seconds = parseFloat(parts[2]);
+      return hours * 3600 + minutes * 60 + seconds;
+    }
+    return 0;
+  }
+
+  // Update subtitles based on current time
+  function updateSubtitles() {
+    if (!subtitlesEnabled || !vttData || !audio) return;
+    
+    const currentTime = audio.currentTime;
+    let currentSubtitle = '';
+    
+    for (const cue of vttData) {
+      if (currentTime >= cue.start && currentTime <= cue.end) {
+        currentSubtitle = cue.text;
+        break;
+      }
+    }
+    
+    subtitleText.textContent = currentSubtitle;
+  }
+
+  // Update subtitles on time update
+  if (audio) {
+    audio.addEventListener('timeupdate', updateSubtitles);
+  }
 }
 </script>
     </body></html>

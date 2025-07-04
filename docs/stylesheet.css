@@ -1409,3 +1409,135 @@ pre code {
 /* =================================================================
    END A3 PRINT STYLES
    ================================================================= */
+
+/* =================================================================
+   OPTIONS MENU AND SUBTITLE STYLES
+   ================================================================= */
+
+/* Options Menu */
+.options-btn {
+    position: relative;
+}
+
+.options-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+}
+
+.options-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: rgba(0, 0, 0, 0.95);
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 8px 0;
+    margin-top: 4px;
+    min-width: 160px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    animation: optionsMenuSlideIn 0.2s ease-out;
+}
+
+@keyframes optionsMenuSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.options-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.options-menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0e68c;
+}
+
+.options-menu-item svg {
+    width: 16px;
+    height: 16px;
+    margin-right: 12px;
+    fill: currentColor;
+}
+
+.options-menu-item span {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Subtitle Display */
+.subtitle-display {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.subtitle-text {
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle-text:empty {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .options-menu {
+        right: -10px;
+        min-width: 140px;
+    }
+    
+    .options-menu-item {
+        padding: 10px 12px;
+    }
+    
+    .options-menu-item svg {
+        width: 14px;
+        height: 14px;
+        margin-right: 10px;
+    }
+    
+    .options-menu-item span {
+        font-size: 13px;
+    }
+    
+    .subtitle-display {
+        padding: 0 15px;
+    }
+    
+    .subtitle-text {
+        font-size: 14px;
+        padding: 10px 14px;
+    }
+}
