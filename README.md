@@ -62,7 +62,8 @@ Skywalker/
 ├── docs/                   # GitHub Pages hosting (live site)
 │   ├── index.html         # Complete interactive guide with audio player
 │   ├── stylesheet.css     # Professional styling with audio player themes
-│   ├── Luke Skywalker_ A New Hope's Archetypal Journey.wav  # Podcast audio
+│   ├── podcast.mp3         # Main podcast audio (browser compatible)
+│   ├── podcast.wav         # (Optional, archival/original WAV)
 │   └── transcript.vtt     # Subtitle file for accessibility
 ├── skywalker-quest-map/   # Development workspace
 │   ├── Skywalker Quest.html     # Alternative version for development
@@ -70,7 +71,7 @@ Skywalker/
 │   ├── allstyles.css           # Complete stylesheet with all effects
 │   ├── Images/                 # Generated artwork and visuals
 │   ├── Podcast Audio/          # Audio content backup
-│   │   └── Luke Skywalker_ A New Hope's Archetypal Journey.wav
+│   │   └── podcast.wav
 │   ├── alternates/            # Alternative CSS versions and backups
 │   └── testing/              # Development and testing files
 └── README.md              # This file
@@ -209,12 +210,19 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 - **Seek Precision**: Click-to-seek and drag-to-scrub timeline interaction
 - **Visual Feedback**: Animated handle and progress indicators
 
+
 ### 📁 Audio Content
 - **Episode**: "Luke Skywalker: A New Hope's Archetypal Journey" 
 - **Duration**: Full-length deep-dive analysis
-- **Quality**: High-fidelity WAV format for optimal listening
+- **Quality**: MP3 format for browser compatibility (WAV also available for archival)
 - **Content**: Mythological foundations and psychological insights
 - **Integration**: Seamlessly paired with visual quest map elements
+
+**File Naming & Deployment Notes:**
+- Audio and subtitle files must use simple, lowercase names (e.g., `podcast.mp3`, `transcript.vtt`) for reliable loading on GitHub Pages.
+- The main site is `docs/index.html`. Push changes to the `main` branch to update the live site.
+- Large audio files (>100MB) are not supported by GitHub Pages.
+- If updates to audio or subtitle files do not appear, force-refresh your browser to clear the cache.
 
 ## 🔄 Workflow & Integration
 
