@@ -124,9 +124,9 @@
     </div>
     
     <!-- Hidden native audio element -->
-    <audio id="heroJourneyPodcast" preload="auto" style="display: none;">
+    <audio id="heroJourneyPodcast" preload="auto" style="display: none;" crossorigin="anonymous">
         <source src="Luke Skywalker_ A New Hope's Archetypal Journey.wav" type="audio/wav">
-        <track kind="subtitles" src="transcript.vtt" srclang="en" label="English" id="subtitleTrack">
+        <track kind="subtitles" src="transcript.vtt" srclang="en" label="English" id="subtitleTrack" default>
         <p>Your browser doesn't support audio. <a href="Luke Skywalker_ A New Hope's Archetypal Journey.wav" download>Download the podcast</a></p>
     </audio>
   </div>
@@ -699,6 +699,19 @@ const muteIcon = document.querySelector('.mute-icon');
 const volumeSlider = document.getElementById('volumeSlider');
 const volumeContainer = document.querySelector('.volume-slider-container');
 
+// Subtitle elements
+const subtitlesBtn = document.getElementById('subtitlesBtn');
+const subtitleDisplay = document.getElementById('subtitleDisplay');
+const subtitleText = document.getElementById('subtitleText');
+const subtitleTrack = document.getElementById('subtitleTrack');
+const optionsBtn = document.getElementById('optionsBtn');
+const optionsMenu = document.getElementById('optionsMenu');
+const downloadBtn = document.getElementById('downloadBtn');
+
+// Subtitle state
+let subtitlesEnabled = false;
+let vttData = null;
+
 if (audio && playPauseBtn) {
   let isDragging = false;
   let wasPlaying = false;
@@ -925,16 +938,6 @@ if (audio && playPauseBtn) {
 }
 
 // Options Menu and Subtitle Functionality
-const optionsBtn = document.getElementById('optionsBtn');
-const optionsMenu = document.getElementById('optionsMenu');
-const downloadBtn = document.getElementById('downloadBtn');
-const subtitlesBtn = document.getElementById('subtitlesBtn');
-const subtitleDisplay = document.getElementById('subtitleDisplay');
-const subtitleText = document.getElementById('subtitleText');
-const subtitleTrack = document.getElementById('subtitleTrack');
-
-let subtitlesEnabled = false;
-
 // Toggle options menu
 if (optionsBtn && optionsMenu) {
   optionsBtn.addEventListener('click', (e) => {
@@ -965,46 +968,39 @@ if (downloadBtn && audio) {
 }
 
 // Subtitle functionality
-if (subtitlesBtn && subtitleDisplay && subtitleText && subtitleTrack) {
+if (subtitlesBtn && subtitleDisplay && subtitleText) {
+  console.log('Setting up subtitle functionality...');
+  
+  // Load VTT file
+  fetch('transcript.vtt')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.text();
+    })
+    .then(vttContent => {
+      vttData = parseVTT(vttContent);
+      console.log('VTT loaded successfully:', vttData.length + ' cues');
+    })
+    .catch(error => {
+      console.error('Error loading VTT file:', error);
+    });
+
   subtitlesBtn.addEventListener('click', () => {
     subtitlesEnabled = !subtitlesEnabled;
+    console.log('Subtitles toggled:', subtitlesEnabled);
     
     if (subtitlesEnabled) {
       subtitleDisplay.style.display = 'block';
-      subtitleTrack.mode = 'showing';
       subtitlesBtn.querySelector('span').textContent = 'Hide Subtitles';
     } else {
       subtitleDisplay.style.display = 'none';
-      subtitleTrack.mode = 'hidden';
       subtitlesBtn.querySelector('span').textContent = 'Show Subtitles';
     }
     
     optionsMenu.style.display = 'none';
   });
-
-  // Listen for subtitle cue changes
-  if (subtitleTrack.track) {
-    subtitleTrack.track.addEventListener('cuechange', () => {
-      if (subtitlesEnabled && subtitleTrack.track.activeCues.length > 0) {
-        subtitleText.textContent = subtitleTrack.track.activeCues[0].text;
-      } else {
-        subtitleText.textContent = '';
-      }
-    });
-  }
-
-  // Alternative method: manually parse VTT and sync with audio time
-  let vttData = null;
-  
-  // Load VTT file
-  fetch('transcript.vtt')
-    .then(response => response.text())
-    .then(vttContent => {
-      vttData = parseVTT(vttContent);
-    })
-    .catch(error => {
-      console.log('VTT file not found or error loading:', error);
-    });
 
   // Parse VTT content
   function parseVTT(vttContent) {
@@ -1066,13 +1062,21 @@ if (subtitlesBtn && subtitleDisplay && subtitleText && subtitleTrack) {
       }
     }
     
-    subtitleText.textContent = currentSubtitle;
+    if (subtitleText.textContent !== currentSubtitle) {
+      subtitleText.textContent = currentSubtitle;
+    }
   }
 
   // Update subtitles on time update
   if (audio) {
     audio.addEventListener('timeupdate', updateSubtitles);
   }
+} else {
+  console.log('Subtitle elements not found:', {
+    subtitlesBtn: !!subtitlesBtn,
+    subtitleDisplay: !!subtitleDisplay,
+    subtitleText: !!subtitleText
+  });
 }
 </script>
     </body></html>
