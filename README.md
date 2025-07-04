@@ -16,10 +16,14 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
   - Dynamic gradient text effects
   - Cinematic 3D title perspective
 
-- **🎧 Audio Integration**:
+- **🎧 Advanced Audio Player**:
+  - Custom-built audio player with professional UI
   - Standalone podcast episode: "Luke Skywalker: A New Hope's Archetypal Journey"
-  - Audio content explores the mythological foundations of the Hero's Journey
-  - Enhanced listening experience paired with visual guide
+  - **Lightsaber-themed timeline** with animated glow effects
+  - **Interactive subtitle support** with synchronized VTT transcripts
+  - **Overflow menu** with download and subtitle toggle options
+  - Keyboard shortcuts (Space, M, Arrow keys) for accessibility
+  - GitHub Pages compatible with all features working seamlessly
 
 - **🔗 Workflow Integration**:
   - GitHub Pages hosting for public access
@@ -56,14 +60,16 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
 ```
 Skywalker/
 ├── docs/                   # GitHub Pages hosting (live site)
-│   ├── index.html         # Portfolio/landing page
-│   └── stylesheet.css     # Portfolio styling
-├── skywalker-quest-map/   # Main development files
-│   ├── Skywalker Quest.html     # Main interactive guide
+│   ├── index.html         # Complete interactive guide with audio player
+│   ├── stylesheet.css     # Professional styling with audio player themes
+│   ├── Luke Skywalker_ A New Hope's Archetypal Journey.wav  # Podcast audio
+│   └── transcript.vtt     # Subtitle file for accessibility
+├── skywalker-quest-map/   # Development workspace
+│   ├── Skywalker Quest.html     # Alternative version for development
 │   ├── Skywalker Quest.md       # Markdown source content
 │   ├── allstyles.css           # Complete stylesheet with all effects
 │   ├── Images/                 # Generated artwork and visuals
-│   ├── Podcast Audio/          # Audio content
+│   ├── Podcast Audio/          # Audio content backup
 │   │   └── Luke Skywalker_ A New Hope's Archetypal Journey.wav
 │   ├── alternates/            # Alternative CSS versions and backups
 │   └── testing/              # Development and testing files
@@ -71,9 +77,10 @@ Skywalker/
 ```
 
 ### 🌐 Deployment Architecture
-- **`docs/`**: GitHub Pages deployment for public access and portfolio showcase
-- **`skywalker-quest-map/`**: Development environment and full feature set
-- **Integration**: Notion workspace now references the published HTML page for seamless workflow
+- **`docs/`**: GitHub Pages deployment featuring the complete interactive experience
+- **`skywalker-quest-map/`**: Development environment and alternative implementations
+- **Audio Integration**: Professional audio player with subtitle support deployed to production
+- **Content Management**: Streamlined workflow from development to live deployment
 
 ## 🎯 Key Design Elements
 
@@ -84,13 +91,19 @@ Skywalker/
 - **3D Typography**: Cinematic perspective on main title
 - **Professional Color Palette**: Carefully chosen dark theme with accent colors
 
+### Audio & Accessibility Features
+- **Custom Audio Player**: Lightsaber-themed timeline with animated glow effects
+- **Subtitle Integration**: Synchronized VTT transcripts for full accessibility
+- **Interactive Controls**: Professional UI with hover effects and keyboard navigation
+- **Three-dot Menu**: Download audio and toggle subtitle options
+- **Responsive Audio**: Optimized for all screen sizes with mobile-friendly controls
+- **GitHub Pages Ready**: All features work seamlessly in production environment
+
 ### Content Organization
 - **Tiered Reflection System**: Three levels of engagement (Padawan, Knight, Master)
 - **Professor's Voice**: Academic commentary with special visual treatment
 - **Responsive Design**: Seamless experience across desktop, tablet, and mobile
 - **Print Optimization**: A3-optimized styles for physical reference materials
-
-## 🔧 Customization
 
 ### Theming
 The project uses CSS custom properties for easy customization:
@@ -105,10 +118,64 @@ The project uses CSS custom properties for easy customization:
 }
 ```
 
+### Audio Player Customization
+The audio player includes extensive customization options:
+
+```css
+/* Lightsaber timeline colors and effects */
+.timeline-progress {
+  background: linear-gradient(90deg, #87CEEB 0%, #4682B4 15%, #1E90FF 30%, ...);
+  animation: lightsaber-glow 16s ease-in-out infinite;
+}
+
+/* Subtitle styling */
+.subtitle-text {
+  background: rgba(0, 0, 0, 0.95);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+```
+
 ### Content Editing
-- Edit HTML content directly in `Skywalker Quest.html`
+- Edit HTML content directly in `docs/index.html` for the live site
 - Modify Markdown source in `Skywalker Quest.md` for structured content management
-- Adjust styling in `allstyles.css` using the existing variable system
+- Adjust styling in `docs/stylesheet.css` using the existing variable system
+- Update audio and subtitle files in the `docs/` folder for GitHub Pages deployment
+
+## 🔧 Technical Implementation
+
+### Audio Player Architecture
+The custom audio player is built with vanilla JavaScript and CSS, featuring:
+
+```javascript
+// Core audio functionality
+const audio = document.getElementById('heroJourneyPodcast');
+const timelineSlider = document.getElementById('timelineSlider');
+
+// Subtitle synchronization
+function updateSubtitles() {
+  const currentTime = audio.currentTime;
+  // Parse VTT cues and display matching subtitle
+}
+
+// Timeline animation
+function updateProgress() {
+  const percent = (audio.currentTime / audio.duration) * 100;
+  timelineProgress.style.width = percent + '%';
+}
+```
+
+### Subtitle System
+- **VTT Parsing**: Custom JavaScript parser for WebVTT format
+- **Real-time Sync**: Event-driven subtitle updates during playback
+- **Accessibility**: Screen reader compatible with proper ARIA labels
+- **Responsive Display**: Dynamic sizing and positioning across devices
+
+### Performance Optimization
+- **Lazy Loading**: Audio files load only when needed
+- **Efficient Animations**: CSS transforms and GPU acceleration
+- **Minimal Dependencies**: No external libraries required
+- **Optimized Assets**: Compressed audio and optimized CSS
 
 ## 🖼️ Visual Assets
 
@@ -117,15 +184,37 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 - Lightsaber and cosmic journey imagery  
 - Cave revelation and warrior contemplation scenes
 
-## 🎧 Audio Content
+## 🎧 Audio Experience
 
-**Podcast Integration**: The Skywalker Quest Map includes a standalone podcast episode that provides deep analysis of the Hero's Journey:
+**Enhanced Podcast Integration**: The Skywalker Quest Map now features a fully integrated audio experience with professional-grade features:
 
+### 🎵 Custom Audio Player Features
+- **Lightsaber Timeline**: Animated progress bar with blue-to-purple gradient glow effects
+- **Professional Controls**: Play/pause, volume, seeking with visual feedback
+- **Keyboard Navigation**: 
+  - `Space`: Play/pause
+  - `M`: Mute/unmute
+  - `Arrow Keys`: Skip forward/backward by 10 seconds
+- **Responsive Design**: Optimized for desktop, tablet, and mobile devices
+
+### 📝 Subtitle Integration
+- **VTT Transcript Support**: Full subtitle synchronization with audio
+- **Toggle Controls**: Easy on/off switching via three-dot menu
+- **Professional Display**: Styled subtitle overlay with fade animations
+- **Accessibility First**: Enhanced experience for hearing-impaired users
+
+### 🎛️ Advanced Features
+- **Download Option**: Direct audio file download via overflow menu
+- **Volume Control**: Hover-to-reveal vertical volume slider
+- **Seek Precision**: Click-to-seek and drag-to-scrub timeline interaction
+- **Visual Feedback**: Animated handle and progress indicators
+
+### 📁 Audio Content
 - **Episode**: "Luke Skywalker: A New Hope's Archetypal Journey" 
-- **Content**: In-depth exploration of mythological themes and psychological foundations
-- **Format**: High-quality WAV audio file for optimal listening experience
-- **Integration**: Audio companion designed to enhance the visual quest map experience
-- **Accessibility**: Multiple content formats for diverse learning preferences
+- **Duration**: Full-length deep-dive analysis
+- **Quality**: High-fidelity WAV format for optimal listening
+- **Content**: Mythological foundations and psychological insights
+- **Integration**: Seamlessly paired with visual quest map elements
 
 ## 🔄 Workflow & Integration
 
@@ -155,17 +244,23 @@ The `Images/` directory contains AI-generated artwork that complements the quest
 - ✅ Interactive spotlight card system for questions
 - ✅ Enhanced Professor's Voice sections with animated borders
 - ✅ Professional typography hierarchy with gradient effects
-- ✅ **GitHub Pages deployment via docs/ folder**
-- ✅ **Standalone podcast episode uploaded and integrated**
-- ✅ **Notion workspace integration with published HTML page**
+- ✅ **Custom audio player with lightsaber-themed timeline**
+- ✅ **Integrated subtitle support with VTT transcripts**
+- ✅ **Three-dot overflow menu with download and subtitle options**
+- ✅ **Keyboard shortcuts for accessibility**
+- ✅ **GitHub Pages deployment with full audio functionality**
+- ✅ **Professional UI/UX with responsive design**
 
 ### Future Enhancements
 - [ ] Dark/light theme toggle
-- [ ] Progress tracking system
-- [ ] Printable PDF generation
-- [ ] Enhanced audio player integration
-- [ ] Mobile app version
-- [ ] User authentication for progress saving
+- [ ] Progress tracking system for quest completion
+- [ ] Enhanced keyboard shortcuts and accessibility features
+- [ ] Multiple language subtitle support
+- [ ] Chapter markers and navigation within audio
+- [ ] Printable PDF generation with embedded QR codes
+- [ ] Mobile app version with offline audio capability
+- [ ] User authentication for progress saving and personalization
+- [ ] Advanced audio features (playback speed, bookmarks)
 
 ## 🤝 Contributing
 
