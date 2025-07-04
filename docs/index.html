@@ -115,6 +115,12 @@
           </svg>
           <span>Show Subtitles</span>
         </div>
+        <div class="options-menu-item" id="testSubtitleBtn">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+          </svg>
+          <span>Test Subtitle</span>
+        </div>
       </div>
     </div>
     
@@ -707,6 +713,7 @@ const subtitleTrack = document.getElementById('subtitleTrack');
 const optionsBtn = document.getElementById('optionsBtn');
 const optionsMenu = document.getElementById('optionsMenu');
 const downloadBtn = document.getElementById('downloadBtn');
+const testSubtitleBtn = document.getElementById('testSubtitleBtn');
 
 // Subtitle state
 let subtitlesEnabled = false;
@@ -967,6 +974,16 @@ if (downloadBtn && audio) {
   });
 }
 
+// Test subtitle functionality
+if (testSubtitleBtn && subtitleDisplay && subtitleText) {
+  testSubtitleBtn.addEventListener('click', () => {
+    subtitleDisplay.style.display = 'block';
+    subtitleText.textContent = 'This is a test subtitle to verify the display is working correctly!';
+    console.log('Test subtitle displayed');
+    optionsMenu.style.display = 'none';
+  });
+}
+
 // Subtitle functionality
 if (subtitlesBtn && subtitleDisplay && subtitleText) {
   console.log('Setting up subtitle functionality...');
@@ -1064,6 +1081,7 @@ if (subtitlesBtn && subtitleDisplay && subtitleText) {
     
     if (subtitleText.textContent !== currentSubtitle) {
       subtitleText.textContent = currentSubtitle;
+      console.log('Updated subtitle:', currentSubtitle);
     }
   }
 
