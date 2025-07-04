@@ -1076,8 +1076,7 @@ if (audio) {
 // Subtitle functionality
 if (subtitlesBtn && subtitleDisplay && subtitleText) {
   console.log('Setting up subtitle functionality...');
-  
-  // Load VTT file
+  // Load VTT file ONCE, with all debug logging in one place
   console.log('Loading VTT file...');
   fetch('transcript.vtt')
     .then(response => {
@@ -1091,22 +1090,6 @@ if (subtitlesBtn && subtitleDisplay && subtitleText) {
       vttData = parseVTT(vttContent);
       console.log('VTT parsed successfully:', vttData.length + ' cues');
       console.log('First few cues:', vttData.slice(0, 3));
-    })
-    .catch(error => {
-      console.error('Error loading VTT file:', error);
-    });
-
-  // --- Extra debug: print all cue times after parsing ---
-  fetch('transcript.vtt')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(vttContent => {
-      vttData = parseVTT(vttContent);
-      console.log('VTT loaded successfully:', vttData.length + ' cues');
       console.log('[DEBUG] First 5 cue times:', vttData.slice(0, 5).map(cue => ({start: cue.start, end: cue.end, text: cue.text})));
     })
     .catch(error => {
