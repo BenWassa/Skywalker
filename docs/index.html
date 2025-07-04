@@ -141,11 +141,11 @@
       <div class="subtitle-text" id="subtitleText"></div>
     </div>
     
-    <!-- Hidden native audio element -->
-    <audio id="heroJourneyPodcast" preload="auto" style="display: none;" crossorigin="anonymous">
-        <source src="https://raw.githubusercontent.com/BenWassa/Skywalker/main/docs/podcast.mp3" type="audio/mpeg">
-        <track kind="subtitles" src="https://raw.githubusercontent.com/BenWassa/Skywalker/main/docs/transcript.vtt" srclang="en" label="English" id="subtitleTrack" default>
-        <p>Your browser doesn't support audio. <a href="https://raw.githubusercontent.com/BenWassa/Skywalker/main/docs/podcast.mp3" download>Download the podcast</a></p>
+    <!-- Native audio element for GitHub Pages compatibility -->
+    <audio id="heroJourneyPodcast" controls preload="auto" style="display: none;" crossorigin="anonymous">
+        <source src="docs/podcast.mp3" type="audio/mpeg">
+        <track kind="subtitles" src="docs/transcript.vtt" srclang="en" label="English" id="subtitleTrack" default>
+        <p>Your browser doesn't support audio. <a href="docs/podcast.mp3" download>Download the podcast</a></p>
     </audio>
   </div>
 </section>
