@@ -16,14 +16,10 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
   - Dynamic gradient text effects
   - Cinematic 3D title perspective
 
-- **🎧 Advanced Audio Player**:
-  - Custom-built audio player with professional UI
+**🎧 Audio Player**:
+  - Uses the default browser audio player for maximum compatibility (custom stylized version will be revisited in the future)
   - Standalone podcast episode: "Luke Skywalker: A New Hope's Archetypal Journey"
-  - **Lightsaber-themed timeline** with animated glow effects
-  - **Interactive subtitle support** with synchronized VTT transcripts
-  - **Overflow menu** with download and subtitle toggle options
-  - Keyboard shortcuts (Space, M, Arrow keys) for accessibility
-  - GitHub Pages compatible with all features working seamlessly
+  - GitHub Pages compatible and works across all major browsers
 
 - **🔗 Workflow Integration**:
   - GitHub Pages hosting for public access
@@ -46,7 +42,7 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
 ## 🚀 Quick Start
 
 ### 🌐 Online Experience
-- **Visit the live site**: [GitHub Pages hosted version](https://benwassa.github.io/Skywalker/)
+- **Visit the live site**: [GitHub Pages hosted version](https://benwassa.github.io/Skywalker/) — **now fully operational!**
 - **Listen to the podcast**: Standalone audio episode available and integrated with the quest content
 
 ### 💻 Local Development
