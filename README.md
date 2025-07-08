@@ -17,7 +17,8 @@ A comprehensive, interactive guide for personal and philosophical growth, inspir
   - Cinematic 3D title perspective
 
 **🎧 Audio Player**:
-  - Uses the default browser audio player for maximum compatibility (custom stylized version will be revisited in the future)
+  - Uses the default browser audio player for maximum compatibility
+  - Custom stylized version was developed but is not currently in use due to technical challenges; this may be revisited in the future
   - Standalone podcast episode: "Luke Skywalker: A New Hope's Archetypal Journey"
   - GitHub Pages compatible and works across all major browsers
 
