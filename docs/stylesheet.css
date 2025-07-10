@@ -804,6 +804,7 @@ pre code {
   font-family: 'Orbitron', sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  word-spacing: 0.4em;
   text-shadow: 0 1px 4px rgba(255, 193, 7, 0.2);
 }
 
@@ -818,6 +819,7 @@ pre code {
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
 .simple-audio-player audio {
