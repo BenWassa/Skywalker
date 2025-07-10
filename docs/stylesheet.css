@@ -1030,19 +1030,32 @@ pre code {
     0 0 64px rgba(94, 166, 38, 0.2);
 }
 
+/* Cosmic Journey image (Return Home section) - Full size with stylized glow */
+.hero-section-image.cosmic-journey {
+  /* Larger size for h2 level heading */
+  max-width: 1000px;
+  /* Enhanced glow effect for prominence */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 48px rgba(59, 130, 246, 0.3),
+    0 0 24px rgba(139, 92, 246, 0.2);
+}
+
+.hero-section-image.cosmic-journey::before {
+  display: none; /* Remove gradient overlay for larger heading level */
+}
+
 .hero-section-image.cosmic-journey::after {
-  color: #3B82F6; /* Blue for cosmic/infinite possibilities */
-  text-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.8),
-    0 0 16px rgba(59, 130, 246, 0.5),
-    0 0 24px rgba(59, 130, 246, 0.3);
+  display: none; /* Remove title overlay for non-stage image */
 }
 
 .hero-section-image.cosmic-journey:hover {
+  /* Enhanced hover effect with prominent glow */
+  transform: translateY(-2px);
   box-shadow: 
     0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 32px rgba(59, 130, 246, 0.4),
-    0 0 64px rgba(59, 130, 246, 0.2);
+    0 0 64px rgba(59, 130, 246, 0.4),
+    0 0 32px rgba(139, 92, 246, 0.3);
 }
 
 /* Individual Image Definitions */
