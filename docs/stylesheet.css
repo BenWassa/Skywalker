@@ -905,7 +905,7 @@ pre code {
   opacity: 0.6;
 }
 
-/* Stage Title Overlay */
+/* Stage Title Overlay - Always visible (static) */
 .hero-section-image::after {
   content: attr(data-stage-title);
   position: absolute;
@@ -929,7 +929,7 @@ pre code {
     0 2px 8px rgba(0, 0, 0, 0.8),
     0 0 16px rgba(255, 193, 7, 0.3);
   z-index: 2;
-  opacity: 1;
+  opacity: 1; /* Always visible */
   transform: translateY(0);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   backdrop-filter: blur(2px);
@@ -943,33 +943,33 @@ pre code {
 
 /* Individual stage title styling with color-coordinated hover glows */
 .hero-section-image.twin-suns::after {
-  color: #87CEEB; /* Light blue for twin suns/longing */
+  color: #e0b656; /* Warm golden tone for twin suns/longing */
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(224, 182, 86, 0.5),
+    0 0 24px rgba(224, 182, 86, 0.3);
+}
+
+.hero-section-image.twin-suns:hover {
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(224, 182, 86, 0.4),
+    0 0 64px rgba(224, 182, 86, 0.2);
+}
+
+.hero-section-image.lightsaber::after {
+  color: #87CEEB; /* Light blue for the call and blade */
   text-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.8),
     0 0 16px rgba(135, 206, 235, 0.5),
     0 0 24px rgba(135, 206, 235, 0.3);
 }
 
-.hero-section-image.twin-suns:hover {
+.hero-section-image.lightsaber:hover {
   box-shadow: 
     0 12px 48px rgba(0, 0, 0, 0.5),
     0 0 32px rgba(135, 206, 235, 0.4),
     0 0 64px rgba(135, 206, 235, 0.2);
-}
-
-.hero-section-image.lightsaber::after {
-  color: #00FF00; /* Classic lightsaber green */
-  text-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.8),
-    0 0 16px rgba(0, 255, 0, 0.5),
-    0 0 24px rgba(0, 255, 0, 0.3);
-}
-
-.hero-section-image.lightsaber:hover {
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 32px rgba(0, 255, 0, 0.4),
-    0 0 64px rgba(0, 255, 0, 0.2);
 }
 
 .hero-section-image.serene-warrior::after {
@@ -984,6 +984,21 @@ pre code {
     0 12px 48px rgba(0, 0, 0, 0.5),
     0 0 32px rgba(139, 92, 246, 0.4),
     0 0 64px rgba(139, 92, 246, 0.2);
+}
+
+.hero-section-image.luke-revelation::after {
+  color: #DC2626; /* Deep red for shadow/darkness */
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.8),
+    0 0 16px rgba(220, 38, 38, 0.5),
+    0 0 24px rgba(220, 38, 38, 0.3);
+}
+
+.hero-section-image.luke-revelation:hover {
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(220, 38, 38, 0.4),
+    0 0 64px rgba(220, 38, 38, 0.2);
 }
 
 .hero-section-image.falling::after {
@@ -1002,17 +1017,17 @@ pre code {
 }
 
 .hero-section-image.hooded-man::after {
-  color: var(--accent-gold);
+  color: #5ea626; /* Vibrant green for return and flame */
   text-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.8),
-    0 0 16px rgba(255, 193, 7, 0.4);
+    0 0 16px rgba(94, 166, 38, 0.4);
 }
 
 .hero-section-image.hooded-man:hover {
   box-shadow: 
     0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 32px rgba(255, 193, 7, 0.4),
-    0 0 64px rgba(255, 193, 7, 0.2);
+    0 0 32px rgba(94, 166, 38, 0.4),
+    0 0 64px rgba(94, 166, 38, 0.2);
 }
 
 .hero-section-image.cosmic-journey::after {
@@ -1036,7 +1051,7 @@ pre code {
 }
 
 .hero-section-image.lightsaber {
-  background-image: url('Hand Grasping Lightsaber.png');
+  background-image: url('Lightsaber\'s Quiet Legacy.png');
 }
 
 .hero-section-image.falling {
@@ -1044,7 +1059,13 @@ pre code {
 }
 
 .hero-section-image.hooded-man {
-  background-image: url('Hooded Man by Pyre.png');
+  background-image: url('Serene Cosmic Warrior_landscape.png');
+  background-size: contain;
+  background-position: center;
+  aspect-ratio: 2/3; /* Portrait aspect ratio for this image */
+  height: 600px;
+  max-width: 400px;
+  margin: 3rem auto;
 }
 
 .hero-section-image.cosmic-journey {
@@ -1052,24 +1073,10 @@ pre code {
   /* Keep standard sizing for this one */
 }
 
-/* Serene Warrior - Special Different Sizing */
+/* Serene Warrior - Standard Sizing (image moved to Stage 5) */
 .hero-section-image.serene-warrior {
-  background-image: url('Serene Cosmic Warrior.png');
-  background-size: contain;
-  background-position: center;
-  aspect-ratio: 2/3; /* Taller aspect ratio for this image */
-  height: 600px;
-  max-width: 400px;
-  margin: 3rem auto;
-  box-shadow: 
-    0 12px 48px rgba(0, 0, 0, 0.5),
-    0 0 32px rgba(139, 92, 246, 0.2);
-}
-
-.hero-section-image.serene-warrior:hover {
-  box-shadow: 
-    0 16px 64px rgba(0, 0, 0, 0.6),
-    0 0 48px rgba(139, 92, 246, 0.3);
+  background-image: url('Hand Grasping Lightsaber.png');
+  /* Uses standard sizing from base hero-section-image class */
 }
 
 /* Additional images if needed */
@@ -1087,21 +1094,11 @@ pre code {
     max-width: 100%;
     margin: 1.5rem auto;
   }
-  
-  .hero-section-image.serene-warrior {
-    height: 450px;
-    max-width: 300px;
-  }
 }
 
 @media (max-width: 480px) {
   .hero-section-image {
     margin: 1rem auto;
     border-radius: 8px;
-  }
-  
-  .hero-section-image.serene-warrior {
-    height: 350px;
-    max-width: 250px;
   }
 }
