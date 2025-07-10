@@ -857,17 +857,30 @@ pre code {
    HERO SECTION IMAGES
    ================================================================= */
 
+/* Hero Section Images - Optimized for Full Resolution Display */
 .hero-section-image {
   width: 100%;
-  height: 250px;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 3/2; /* Maintains ~1536x1024 aspect ratio */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 12px;
   position: relative;
-  margin: 2rem 0;
+  margin: 2rem auto;
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(59, 130, 246, 0.1);
+  transition: all 0.3s ease;
+}
+
+.hero-section-image:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(59, 130, 246, 0.15);
 }
 
 .hero-section-image::before {
@@ -879,13 +892,20 @@ pre code {
   bottom: 0;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.1) 0%,
-    rgba(0, 0, 0, 0.3) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.05) 0%,
+    rgba(0, 0, 0, 0.15) 50%,
+    rgba(0, 0, 0, 0.35) 100%
   );
   z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
 }
 
+.hero-section-image:hover::before {
+  opacity: 0.6;
+}
+
+/* Individual Image Definitions */
 .hero-section-image.twin-suns {
   background-image: url('Twin Suns Reverie.png');
 }
@@ -904,19 +924,59 @@ pre code {
 
 .hero-section-image.cosmic-journey {
   background-image: url('Starlit Cosmic Journey.png');
+  /* Keep standard sizing for this one */
+}
+
+/* Serene Warrior - Special Different Sizing */
+.hero-section-image.serene-warrior {
+  background-image: url('Serene Cosmic Warrior.png');
+  background-size: contain;
+  background-position: center;
+  aspect-ratio: 2/3; /* Taller aspect ratio for this image */
+  height: 600px;
+  max-width: 400px;
+  margin: 3rem auto;
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.5),
+    0 0 32px rgba(139, 92, 246, 0.2);
+}
+
+.hero-section-image.serene-warrior:hover {
+  box-shadow: 
+    0 16px 64px rgba(0, 0, 0, 0.6),
+    0 0 48px rgba(139, 92, 246, 0.3);
+}
+
+/* Additional images if needed */
+.hero-section-image.luke-revelation {
+  background-image: url('Luke Revelation Cave.png');
+}
+
+.hero-section-image.lightsaber-legacy {
+  background-image: url('Lightsaber Quiet Legacy.png');
 }
 
 /* Responsive adjustments for hero images */
 @media (max-width: 768px) {
   .hero-section-image {
-    height: 200px;
-    margin: 1.5rem 0;
+    max-width: 100%;
+    margin: 1.5rem auto;
+  }
+  
+  .hero-section-image.serene-warrior {
+    height: 450px;
+    max-width: 300px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-section-image {
-    height: 150px;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    border-radius: 8px;
+  }
+  
+  .hero-section-image.serene-warrior {
+    height: 350px;
+    max-width: 250px;
   }
 }
