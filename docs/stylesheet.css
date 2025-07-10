@@ -763,18 +763,28 @@ pre code {
    ================================================================= */
 
 .audio-companion-section {
-  margin: 2rem 0 3rem 0;
+  margin: 2rem auto 3rem auto;
   position: relative;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .custom-audio-player {
   background: linear-gradient(135deg, rgba(24, 28, 44, 0.98) 0%, rgba(25, 28, 43, 0.98) 100%);
   padding: 1.5rem;
   border-radius: 12px;
-  margin-top: 1rem;
+  margin: 1rem auto 0 auto;
   box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .audio-info {
@@ -789,6 +799,12 @@ pre code {
 .audio-title {
   font-weight: 600;
   color: var(--accent-gold);
+  text-align: center;
+  font-size: large;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 1px 4px rgba(255, 193, 7, 0.2);
 }
 
 .audio-duration {
@@ -796,10 +812,25 @@ pre code {
   opacity: 0.8;
 }
 
+.simple-audio-player {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.simple-audio-player audio {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+}
+
 /* Custom Audio Controls */
 .audio-controls {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   background: rgba(0, 0, 0, 0.2);
   padding: 1rem;
