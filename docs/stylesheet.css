@@ -1051,41 +1051,24 @@ pre code {
 }
 
 .hero-section-image.lightsaber {
-  background-image: url('Lightsaber\'s Quiet Legacy.png');
-}
-
-.hero-section-image.falling {
-  background-image: url('Falling Dramatic Realism.png');
-}
-
-.hero-section-image.hooded-man {
-  background-image: url('Serene Cosmic Warrior_landscape.png');
-  background-size: contain;
-  background-position: center;
-  aspect-ratio: 2/3; /* Portrait aspect ratio for this image */
-  height: 600px;
-  max-width: 400px;
-  margin: 3rem auto;
-}
-
-.hero-section-image.cosmic-journey {
-  background-image: url('Starlit Cosmic Journey.png');
-  /* Keep standard sizing for this one */
-}
-
-/* Serene Warrior - Standard Sizing (image moved to Stage 5) */
-.hero-section-image.serene-warrior {
   background-image: url('Hand Grasping Lightsaber.png');
+}
+
+.hero-section-image.serene-warrior {
+  background-image: url('Serene Cosmic Warrior.png');
   /* Uses standard sizing from base hero-section-image class */
 }
 
-/* Additional images if needed */
 .hero-section-image.luke-revelation {
   background-image: url('Luke Revelation Cave.png');
 }
 
-.hero-section-image.lightsaber-legacy {
-  background-image: url('Lightsaber Quiet Legacy.png');
+.hero-section-image.hooded-man {
+  background-image: url('Serene Cosmic Warrior_landscape.png');
+}
+
+.hero-section-image.cosmic-journey {
+  background-image: url('Starlit Cosmic Journey.png');
 }
 
 /* Responsive adjustments for hero images */
