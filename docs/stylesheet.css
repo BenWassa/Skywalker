@@ -362,18 +362,18 @@ p {
   z-index: 1;
 }
 
+blockquote {
+  margin: 0 auto; /* Centers the blockquote horizontally */
+  text-align: center; /* Centers the text inside */
+  max-width: 800px; /* Optional: Limits the width for better readability */
+  font-style: italic;
+}
+
 blockquote p {
   color: var(--text-secondary);
   font-style: italic;
   line-height: 1.8;
   margin-bottom: 0;
-}
-
-blockquote_1 {
-  margin: 0 auto; /* Centers the blockquote_1 horizontally */
-  text-align: center; /* Centers the text inside */
-  max-width: 800px; /* Optional: Limits the width for better readability */
-  font-style: italic;
 }
 
 /* Clean List Styling */
