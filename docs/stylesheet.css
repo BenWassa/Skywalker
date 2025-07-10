@@ -369,6 +369,13 @@ blockquote p {
   margin-bottom: 0;
 }
 
+blockquote_1 {
+  margin: 0 auto; /* Centers the blockquote_1 horizontally */
+  text-align: center; /* Centers the text inside */
+  max-width: 800px; /* Optional: Limits the width for better readability */
+  font-style: italic;
+}
+
 /* Clean List Styling */
 ul {
   list-style: none;
@@ -763,13 +770,9 @@ pre code {
    ================================================================= */
 
 .audio-companion-section {
-  margin: 2rem auto 3rem auto;
+  margin: 2rem 0 3rem 0;
   position: relative;
-  max-width: 800px;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .custom-audio-player {
