@@ -972,14 +972,14 @@ pre code {
     0 0 64px rgba(135, 206, 235, 0.2);
 }
 
-.hero-section-image.serene-warrior::after {
+.hero-section-image.vader-revelation::after {
   color: var(--accent-purple);
   text-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.8),
     0 0 16px rgba(139, 92, 246, 0.4);
 }
 
-.hero-section-image.serene-warrior:hover {
+.hero-section-image.vader-revelation:hover {
   box-shadow: 
     0 12px 48px rgba(0, 0, 0, 0.5),
     0 0 32px rgba(139, 92, 246, 0.4),
@@ -1067,10 +1067,10 @@ pre code {
   background-image: url('Lightsaber Quiet Legacy.png');
 }
 
-.hero-section-image.serene-warrior {
-  background-image: url('Serene Cosmic Warrior.png');
-  /* Uses standard sizing from base hero-section-image class */
+.hero-section-image.vader-revelation {
+  background-image: url('No I am Vader_3.png');
 }
+
 
 .hero-section-image.luke-revelation {
   background-image: url('Luke Revelation Cave.png');
